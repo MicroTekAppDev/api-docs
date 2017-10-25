@@ -36,6 +36,7 @@ under the License.
     </style>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
+    <%= stylesheet_link_tag "custom", media: :all %>
     <% if current_page.data.search %>
       <%= javascript_include_tag  "all" %>
     <% else %>
@@ -70,22 +71,31 @@ under the License.
         <ul class="search-results"></ul>
       <% end %>
       <div id="toc" class="toc-list-h1">
-        <% toc_data(page_content).each do |h1| %>
-          <li>
-            <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:content] %>"><%= h1[:content] %></a>
-            <% if h1[:children].length > 0 %>
-              <ul class="toc-list-h2">
-                <% h1[:children].each do |h2| %>
-                  <li>
-                    <a href="#<%= h2[:id] %>" class="toc-h2 toc-link" data-title="<%= h1[:content] %>"><%= h2[:content] %></a>
-                  </li>
-                <% end %>
-              </ul>
-            <% end %>
-          </li>
-        <% end %>
-      </div>
-      <% if current_page.data.toc_footers %>
+      <% toc_data(page_content).each do |h1| %>
+        <li>
+          <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:content] %>"><%= h1[:content] %></a>
+          <% if h1[:children].length > 0 %>
+            <ul class="toc-list-h2">
+              <% h1[:children].each do |h2| %>
+                <li>
+                  <a href="#<%= h2[:id] %>" class="toc-h2 toc-link" data-title="<%= h1[:content] %>"><%= h2[:content] %></a>
+                  <% if h2[:children].length > 0 %>
+                    <ul class="toc-list-h3">
+                      <% h2[:children].each do |h3| %>
+                        <li>
+                          <a href="#<%= h3[:id] %>" class="toc-h3 toc-link" data-title="<%= h1[:content] %>"><%= h3[:content] %></a>
+                        </li>
+                      <% end %>
+                    </ul>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </li>
+      <% end %>
+    </div>
+    <% if current_page.data.toc_footers %>
         <ul class="toc-footer">
           <% current_page.data.toc_footers.each do |footer| %>
             <li><%= footer %></li>
