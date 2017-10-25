@@ -1,0 +1,2 @@
+### Pagination
+The MicroTek API makes use of paginated results.  You can paginate through results and receive the next page by providing page parameter with selected page number. Each response contains pagination property with the following attributes:
