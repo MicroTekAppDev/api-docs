@@ -14,6 +14,16 @@ curl https://{{environment}}/api/v1/customer/course/list
      -H 'content-type: application/json'
      -H 'authorization: Bearer your-account-token'
 ```
+
+```csharp
+var client = new RestClient("https://{{environment}}/api/v1/customer/course/list");
+var request = new RestRequest(Method.POST);
+request.AddHeader("content-type", "application/json");
+request.AddHeader("authorization", "Bearer {token}");
+//request.AddParameter("undefined", "{}", ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+```
+
 > Response:
 
 ```
@@ -45,13 +55,15 @@ curl https://{{environment}}/api/v1/customer/course/list
 ```
 <api>`POST /api/v1/customer/course/list`</api>
 
+
 Returns a list of courses.
 
 #### Attributes
-Parameter | Type | Description
---------- | ---- | -----------
-**page** | *int* | Page number
-**pageSize** | *int* | Number of records to return
+
+| Parameter | Type | Description |
+|--------- | ---- | -----------
+| **page** | *int* | Page number |
+| **pageSize** | *int* | Number of records to return |
 
 ### Get
 
