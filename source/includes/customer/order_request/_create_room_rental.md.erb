@@ -1,9 +1,9 @@
-### Create - Room Rental
+### Create Room Rental
 
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/order/request/room-rental/create
+curl <%= config[:api_host] %>/v1/customer/order-request/create-room-rental
      -X POST
      -d '{
             "courseKey": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
@@ -46,7 +46,7 @@ curl <%= config[:api_host] %>/v1/customer/order/request/room-rental/create
 }
 ```
 
-<api>`POST /v1/customer/order/request/room-rental/create`</api>
+<api>`POST /v1/customer/order-request/create-room-rental`</api>
 
 Creates a new room rental order request. The response body will include the order requests `requestKey`, which can be used to query a request for status updates.
 

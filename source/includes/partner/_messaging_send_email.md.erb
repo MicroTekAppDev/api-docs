@@ -1,0 +1,62 @@
+## Messaging
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+### Send Email
+
+> Request:
+
+```shell
+curl <%= config[:api_host] %>/v1/partner/messaging/send-email
+     -X POST
+     -d '{
+            "to":
+            [
+                {
+                    "email": "somebody@someplace.com"
+                }
+            ],
+            "from":
+            {
+                "email": "somebody@someplace.com"
+            },
+            "subject": "Sample Subject",
+            "body": "Sample Body"
+         }'
+     -H 'content-type: application/json'
+     -H 'authorization: Bearer your-account-token'
+```
+
+```csharp
+var client = new RestClient("<%= config[:api_host] %>/v1/partner/messaging/send-email");
+var request = new RestRequest(Method.POST);
+request.AddHeader("content-type", "application/json");
+request.AddHeader("authorization", "Bearer {token}");
+request.AddParameter("courseKey", "00000000-0000-0000-0000-000000000000"", ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+```
+
+> Response:
+
+```
+200 OK
+```
+
+```json
+{
+    "status": "Ok"
+}
+```
+<api>`POST /v1/partner/messaging/send-email`</api>
+
+Sends an email
+
+#### Attributes
+Parameter | Type | Description
+--------- | ---- | -----------
+to **required** | *object array* | sample text
+from **required** | *object array* | sample text
+cc *optional* | *object array* | sample text
+body **required** | *string* | sample text
+subject **required** | *string* | sample text
+

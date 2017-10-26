@@ -1,9 +1,9 @@
-### Cancel
+### Cancel Order Request
 
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/order/request/cancel
+curl <%= config[:api_host] %>/v1/customer/order-request/cancel
      -X POST
      -d '{
             "requestKey": "00000000-0000-0000-0000-000000000000"
@@ -22,7 +22,7 @@ curl <%= config[:api_host] %>/v1/customer/order/request/cancel
     "status": "Ok"
 }
 ```
-<api>`POST /v1/customer/order/request/cancel`</api>
+<api>`POST /v1/customer/order-request/cancel`</api>
 
 Cancels an order request
 

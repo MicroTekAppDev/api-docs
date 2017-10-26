@@ -33,6 +33,9 @@ includes:
   
   - partner/index
   - partner/introduction
+  - partner/messaging_send_email
+  - partner/referral_create_customer_lead
+  - partner/room_rental_location_find_nearby
 
   - appendix/index
   - appendix/introduction

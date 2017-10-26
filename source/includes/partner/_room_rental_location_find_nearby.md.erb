@@ -1,0 +1,70 @@
+## Room Rental
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    
+### Find Nearby Venue
+
+> Request:
+
+```shell
+curl <%= config[:api_host] %>/v1/partner/room-rental/find-nearby-venue
+     -X POST
+     -d '{
+            "query": "chicago",
+            "radius": 60
+         }'
+     -H 'content-type: application/json'
+     -H 'authorization: Bearer your-account-token'
+```
+
+```csharp
+var client = new RestClient("<%= config[:api_host] %>/v1/partner/room-rental/find-nearby-venue");
+var request = new RestRequest(Method.POST);
+request.AddHeader("content-type", "application/json");
+request.AddHeader("authorization", "Bearer {token}");
+request.AddParameter("courseKey", "00000000-0000-0000-0000-000000000000"", ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+```
+
+> Response:
+
+```
+200 OK
+```
+
+```json
+{
+    "result": {
+        "type": "GeoDistance",
+        "query": "chicago",
+        "radius": 60,
+        "geographicAreas": [
+            {
+                "city": "Chicago",
+                "region": "IL",
+                "country": "US",
+                "latitude": 41.899078333333335,
+                "longitude": -87.664288,
+                "venues": [
+                    {
+                        "id": 50026,
+                        "name": "MicroTek - Chicago",
+                        "latitude": 41.881,
+                        "longitude": -87.634704
+                    }
+                ]
+            }
+        ]
+    },
+    "status": "Ok"
+}
+```
+<api>`POST /v1/partner/room-rental/find-nearby-venue`</api>
+
+Returns venues withing your search criteria
+
+#### Attributes
+Parameter | Type | Description
+--------- | ---- | -----------
+courseKey **required** | *guid* | Key
+

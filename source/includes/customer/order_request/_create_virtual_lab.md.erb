@@ -1,9 +1,9 @@
-### Create - Virtual Lab
+### Create Virtual Lab
 
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/order/request/virtual-lab/create
+curl <%= config[:api_host] %>/v1/customer/order-request/create-virtual-lab
      -X POST
      -d '{
             "courseKey": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
@@ -50,7 +50,7 @@ curl <%= config[:api_host] %>/v1/customer/order/request/virtual-lab/create
     "requestKey": "00000000-0000-0000-0000-000000000000",
 }
 ```
-<api>`POST /v1/customer/order/request/virtual-lab/create`</api>
+<api>`POST /v1/customer/order-request/create-virtual-lab`</api>
 
 Creates a new virtual lab order request. The response body will include the order request''s `requestKey`, which can be used to query a request for status updates.
 
