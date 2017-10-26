@@ -865,3 +865,28 @@ span.opt {
     background-color: #373352;
   }
 }
+
+
+.content table td:first-child strong,.content table td:first-child em {
+  font-size: 12px;
+  display: block;
+  background-color: #fff;
+}
+
+.content table td:first-child strong {
+  font-weight: 500;
+  color: #ffa02d
+}
+
+.content table td:first-child em {
+  font-weight: 400;
+  color: #bbb;
+}
+
+.content table td:last-child em {
+  background-color: #fff;
+  color: #bbb;
+  font-size: 12px;
+  font-weight: 400;
+  display: block;
+}

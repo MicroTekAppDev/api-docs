@@ -16,10 +16,20 @@ includes:
   - core/introduction/errors
   - core/introduction/rate_limits
 
+  - customer/index
   - customer/introduction
-  - customer/order_request
-  - customer/order
-  - customer/course
+  - customer/order_request/index
+  - customer/order_request/create_room_rental
+  - customer/order_request/create_virtual_lab
+  - customer/order_request/list
+  - customer/order_request/get
+  - customer/order_request/cancel
+  - customer/order/index
+  - customer/order/list
+  - customer/order/get
+  - customer/course/index
+  - customer/course/list
+  - customer/course/get
   
   - partner/index
   - partner/introduction

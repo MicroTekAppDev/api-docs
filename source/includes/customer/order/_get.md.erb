@@ -1,0 +1,33 @@
+### Get
+
+> Request:
+
+```shell
+curl <%= config[:api_host] %>/v1/customer/order/get
+     -X POST
+     -d '{
+            "orderKey": "00000000-0000-0000-0000-000000000000"
+        }'
+     -H 'content-type: application/json'
+     -H 'authorization: Bearer your-account-token'
+```
+> Response:
+
+```
+200 OK
+```
+
+```json
+{
+    "result": { },
+    "status": "Ok"
+}
+```
+<api>`POST /v1/customer/order/get`</api>
+
+Returns a single course.
+
+#### Attributes
+Parameter | Type | Description
+--------- | ---- | -----------
+orderKey **required** | *guid* | Key
