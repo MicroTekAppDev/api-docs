@@ -8,13 +8,14 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
 
 includes:
-  - core/index
-  - core/introduction
-  - core/introduction/basics
-  - core/introduction/environments
-  - core/introduction/pagination
-  - core/introduction/errors
-  - core/introduction/rate_limits
+  - api_reference/index
+  - api_reference/introduction
+  - api_reference/introduction/basics
+  - api_reference/introduction/environments
+  - api_reference/introduction/pagination
+  - api_reference/introduction/errors
+  - api_reference/introduction/rate_limits
+  - api_reference/authentication
 
   - customer/index
   - customer/introduction
@@ -33,12 +34,13 @@ includes:
   
   - partner/index
   - partner/introduction
-  - partner/messaging_send_email
   - partner/referral_create_customer_lead
   - partner/room_rental_location_find_nearby
+  - partner/messaging_send_email
 
   - appendix/index
   - appendix/introduction
+  - appendix/lists/index
   - appendix/lists/timezone
   - appendix/lists/virtual_lab_datacenters
 
