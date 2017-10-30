@@ -3,11 +3,8 @@
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/order-request/get
-     -X POST
-     -d '{
-            "requestKey": "00000000-0000-0000-0000-000000000000"
-        }'
+curl <%= config[:api_host] %>/v1/customer/order-requests/:requestKey
+     -X GET
      -H 'content-type: application/json'
      -H 'authorization: Bearer your-account-token'
 ```
@@ -59,7 +56,7 @@ curl <%= config[:api_host] %>/v1/customer/order-request/get
     "status": "Ok"
 }
 ```
-<api>`POST /v1/customer/order/request/get`</api>
+<api>`GET /v1/customer/order-requests/:requestKey`</api>
 
 Returns a single order request.
 

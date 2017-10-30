@@ -3,13 +3,8 @@
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/course/list
-     -X POST
-     -d '{
-            "page": 1,
-            "pageSize": 25
-        }'
-     -H 'content-type: application/json'
+curl <%= config[:api_host] %>/v1/customer/courses
+     -X GET
      -H 'authorization: Bearer your-account-token'
 ```
 
@@ -53,7 +48,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 
-<api>`POST /v1/customer/course/list`</api>
+<api>`GET /v1/customer/courses`</api>
 
 
 Returns a list of courses.

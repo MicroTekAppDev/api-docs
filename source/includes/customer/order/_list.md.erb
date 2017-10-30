@@ -3,13 +3,8 @@
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/order/list
-     -X POST
-     -d '{
-            "page": 1,
-            "pageSize": 25
-        }'
-     -H 'content-type: application/json'
+curl <%= config[:api_host] %>/v1/customer/orders
+     -X GET
      -H 'authorization: Bearer your-account-token'
 ```
 > Response:
@@ -39,7 +34,7 @@ curl <%= config[:api_host] %>/v1/customer/order/list
     "status": "Ok"
 }
 ```
-<api>`POST /v1/customer/order/list`</api>
+<api>`GET /v1/customer/orders`</api>
 
 Returns a list of orders.
 

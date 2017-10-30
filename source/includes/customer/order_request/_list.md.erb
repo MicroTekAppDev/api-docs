@@ -3,12 +3,8 @@
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/order-request/list
-     -X POST
-     -d '{
-            "page": 1,
-            "pageSize": 30
-        }'
+curl <%= config[:api_host] %>/v1/customer/order-requests?page=1&pageSize=30
+     -X GET
      -H 'content-type: application/json'
      -H 'authorization: Bearer your-account-token'
 ```
@@ -48,7 +44,7 @@ curl <%= config[:api_host] %>/v1/customer/order-request/list
     "status": "Ok"
 }
 ```
-<api>`POST /v1/customer/order/request/list`</api>
+<api>`GET /v1/customer/order-requests`</api>
 
 Returns a list of order requests.
 

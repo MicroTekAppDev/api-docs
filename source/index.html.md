@@ -34,9 +34,11 @@ includes:
   
   - partner/index
   - partner/introduction
-  - partner/referral_create_customer_lead
-  - partner/room_rental_location_find_nearby
-  - partner/messaging_send_email
+  
+  - partner/referrals/index
+  - partner/referrals/create_customer_leads
+  - partner/referrals/create_company_newsletters
+  - partner/venue_locations
 
   - appendix/index
   - appendix/introduction
