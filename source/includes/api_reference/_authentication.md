@@ -1,38 +1,26 @@
 ## Authentication
 
-JSON Web Tokens (JWTs) are an industry standard authentication mechanism. The full specification is described here, and a set of supported JWT libraries for a variety of languages and platforms can be found at http://jwt.io. To summarize, a JWT is composed of a header, a payload, and a signature. The payload contains information called claims which describe the subject to whom the token was issued.
+All MicroTek API requests require authentication.
 
-The JWT itself is transmitted via the HTTP authorization header. The token should be prefixed with “Bearer” followed by a space. For example: Bearer your-jwt.
+1. [Acquire an access token](#acquire-an-access-token)
+2. [Use the access token to make authenticated requests](#authenticating-requests) 
 
-#### Obtaining a Token
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+### Acquire an Access Token
 
 > Request:
 
 ```shell
 
 
-curl http://localhost:5000/connect/token \
+curl http://idp.mclabs.com/connect/token \
      -X POST
     --h 'cache-control: no-cache' \
     --h 'content-type: application/x-www-form-urlencoded' \
-    --h 'postman-token: 5bf3baf0-04ba-cc4f-63c2-7671b739428d' \
-    --d 'client_id: 7CAABBF5-464F-4AE3-AF61-D000D3A2A11D' \
+    --d 'client_id: 00000000-0000-0000-0000-000000000000' \
     --d 'grant_type: client_credentials' \
     --d 'client_secret: password' \
     --d 'scope: public-api'
 ```
-
-```csharp
-var client = new RestClient("http://localhost:5000/connect/token");
-var request = new RestRequest(Method.POST);
-request.AddHeader("cache-control", "no-cache");
-request.AddHeader("content-type", "application/x-www-form-urlencoded");
-request.AddParameter("application/x-www-form-urlencoded", "client_id=7CAABBF5-464F-4AE3-AF61-D000D3A2A11D&grant_type=client_credentials&client_secret=password&scope=public-api", ParameterType.RequestBody);
-IRestResponse response = client.Execute(request);
-```
-
 > Response:
 
 ```
@@ -46,14 +34,32 @@ IRestResponse response = client.Execute(request);
     "token_type": "Bearer"
 }
 ```
-<api>`POST http://localhost:5000/connect/token`</api>
 
-Returns a JWT
+Acquiring an access token is a two-step process:
 
-#### Attributes
+1. Signup for a MicroTek developers account by contacting your account manager.
+2. Call our secure token service for an access token
+
+<api>`POST https://idp.mclabs.com/connect/token`</api>
+
+##### Request arguments
+
 Parameter | Type | Description
 --------- | ---- | -----------
-client_id **required** | *string* | Sample Text
-grant_type **required** | *string* | Sample Text
-client_secret **required** | *string* | Sample Text
-scope **required** | *string* | Sample Text
+grant_type **required** | *string* | Should be "client_credentials"
+client_id **required** | *string* | Your client id
+client_secret **required** | *string* | Your client secret.
+scope **required** | *string* | Should be "public-api"
+
+### Authenticating Requests
+
+All requests must be authenticated with an access token supplied in the Authorization header using the Bearer scheme. Your client may only have one active access token at a time. Acquiring a new access token will invalidate any other token you own.
+
+The request header will look like this: **Authorization: Bearer {your_access_token}**
+
+### Refreshing Access
+
+To limit the window of opportunity for attackers in the event an access token is compromised, access tokens expire after a set amout of time. To gain long-lived access to your account, it’s necessary to “refresh” your access when it expires.  Refreshing an access token will invalidate the previous token, if it is still valid.
+
+
+<aside class="warning">Access tokens must not be visible/available in public (widget integration code, client-side JavaScript, etc.).</aside>

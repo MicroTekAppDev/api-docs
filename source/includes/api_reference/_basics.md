@@ -1,4 +1,4 @@
-### Basics
+## Basics
 
 The MicroTek API is designed according to REST principles.
 

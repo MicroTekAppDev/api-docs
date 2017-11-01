@@ -8,14 +8,17 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
 
 includes:
+
+  - alerts
+
   - api_reference/index
   - api_reference/introduction
-  - api_reference/introduction/basics
-  - api_reference/introduction/environments
-  - api_reference/introduction/pagination
-  - api_reference/introduction/errors
-  - api_reference/introduction/rate_limits
+  - api_reference/basics
+  - api_reference/environments
   - api_reference/authentication
+  - api_reference/pagination
+  - api_reference/rate_limits
+  - api_reference/errors
 
   - customer/index
   - customer/introduction

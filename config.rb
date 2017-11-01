@@ -1,7 +1,7 @@
 # Globals
 config[:api_host]      = 'https://{{environment_url}}/api'
-config[:api_host_dev]  = 'https://dev-api.devmclabs.com/api'
-config[:api_host_prod] = 'https://api.mclabs.com/api'
+config[:api_host_dev]  = 'https://dev-developer.devmclabs.com/api'
+config[:api_host_prod] = 'https://developer.mclabs.com/api'
 config[:access_token]  = 'Bearer your_token'
 
 # Unique header generation

@@ -1,0 +1,17 @@
+## Environments
+
+MicroTek offers two API environments - Development and Production
+
+Please use our development environment while building and testing your integrations.
+
+Environment | Uri
+---------- | -------
+Development | <%= config[:api_host_dev] %>
+Production | <%= config[:api_host_prod] %> 
+
+Please note that all API requests must be made using HTTPS.  Using a a non-secure URI will be rejected.
+
+
+
+
+
