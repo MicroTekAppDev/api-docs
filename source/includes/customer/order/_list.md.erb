@@ -1,4 +1,4 @@
-### List Orders
+### List orders
 
 > Request:
 
@@ -10,36 +10,19 @@ curl <%= config[:api_host] %>/v1/customer/orders
 > Response:
 
 ```
-200 OK
+Status: 200 OK
 ```
 
 ```json
 {
-    "result": {
-        "page": 1,
-        "pageSize": 25,
-        "pageRecords": 25,
-        "totalPages": 6,
-        "totalRecords": 144,
-        "results": [
-            {
-                "orderKey": "00000000-0000-0000-0000-000000000000",
-                "orderNumber": 398165,
-                "courseKey": "00000000-0000-0000-0000-000000000000",
-                "courseName": "Sample Title",
-                "referenceCode": null
-            }
-        ]
-    },
-    "status": "Ok"
 }
 ```
 <api>`GET /v1/customer/orders`</api>
 
 Returns a list of orders.
 
-#### Attributes
+#### Parameters
 
 Parameter | Type | Description
 --------- | ---- | -----------
-Pagination *optional* | This endpoint can be [paginated](#api-reference-pagination).
+Pagination *optional* | | This endpoint can be [paginated](#api-reference-pagination).

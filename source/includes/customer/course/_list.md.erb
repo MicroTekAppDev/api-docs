@@ -1,4 +1,4 @@
-### List Courses
+### List courses
 
 > Request:
 
@@ -8,53 +8,23 @@ curl <%= config[:api_host] %>/v1/customer/courses
      -H 'authorization: Bearer your-account-token'
 ```
 
-```csharp
-var client = new RestClient("<%= config[:api_host] %>/v1/customer/course/list");
-var request = new RestRequest(Method.POST);
-request.AddHeader("content-type", "application/json");
-request.AddHeader("authorization", "Bearer {token}");
-//request.AddParameter("undefined", "{}", ParameterType.RequestBody);
-IRestResponse response = client.Execute(request);
-```
-
 > Response:
 
 ```
-200 OK
+Status: 200 OK
 ```
 
 ```json
 {
-    "result": {
-        "page": 1,
-        "pageSize": 30,
-        "pageRecords": 5,
-        "totalPages": 1,
-        "totalRecords": 5,
-        "results": [
-            {
-                "courseKey": "00000000-0000-0000-0000-000000000000",
-                "courseName": "Sample Title",
-                "courseCode": null,
-                "description": null,
-                "isActive": true,
-                "supportsTrainingRoom": true,
-                "supportsVirtualTrainingLab": true
-            }
-        ]
-    },
-    "status": "Ok"
 }
 ```
 
-
 <api>`GET /v1/customer/courses`</api>
-
 
 Returns a list of courses.
 
-#### Attributes
+#### Parameters
 
-Parameter |  Description
+Parameter | Type | Description
 --------- | ---- | -----------
-Pagination *optional* | This endpoint can be [paginated](#api-reference-pagination).
+Pagination *optional* | | This endpoint can be [paginated](#api-reference-pagination).

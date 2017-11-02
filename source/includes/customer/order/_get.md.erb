@@ -1,4 +1,4 @@
-### Get Order
+### Get a single order
 
 > Request:
 
@@ -10,20 +10,18 @@ curl <%= config[:api_host] %>/v1/customer/orders/:orderKey
 > Response:
 
 ```
-200 OK
+Status: 200 OK
 ```
 
 ```json
 {
-    "result": { },
-    "status": "Ok"
 }
 ```
 <api>`GET /v1/customer/orders/:orderKey`</api>
 
 Returns a single course.
 
-#### Attributes
+#### Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 orderKey **required** | *guid* | Key

@@ -1,66 +1,27 @@
-### Get Order Request
+### Get a single order request
 
 > Request:
 
 ```shell
 curl <%= config[:api_host] %>/v1/customer/order-requests/:requestKey
      -X GET
-     -H 'content-type: application/json'
      -H 'authorization: Bearer your-account-token'
 ```
 > Response:
 
 ```
-200 OK
+Status: 200 OK
 ```
 
 ```json
 {
-    "result": {
-        "requestKey": "00000000-0000-0000-0000-000000000000",
-        "requestNumber": 36810,
-        "statusCode": 4,
-        "statusName": "Cancelled",
-        "statusReason": null,
-        "statusNote": null,
-        "orderKey": null,
-        "orderNumber": null,
-        "courseKey": "00000000-0000-0000-0000-000000000000",
-        "courseName": "Centrify Advanced Track",
-        "requestedOn": "2017-10-16T11:28:05.27",
-        "requestedBy": "Joe Rogers",
-        "purchaseOrderNumber": null,
-        "referenceCode": null,
-        "hasRoomRental": false,
-        "hasVirtualLab": true,
-        "roomRental": null,
-        "virtualLab": {
-            "serviceKey": null,
-            "serviceNumber": null,
-            "timeZoneKey": "00000000-0000-0000-0000-000000000000",
-            "timeZoneName": "(GMT-07:00) Mountain Time (US & Canada)",
-            "studentQuantity": 8,
-            "instructorQuantity": 1,
-            "sessions": [
-                {
-                    "specificationKey": "00000000-0000-0000-0000-000000000000",
-                    "specificationName": "Centrify Advanced Track",
-                    "eventStartDate": "2017-10-23T00:00:00",
-                    "eventEndDate": "2017-10-24T00:00:00",
-                    "eventStartTime": "08:00:00",
-                    "eventEndTime": "17:00:00"
-                }
-            ]
-        }
-    },
-    "status": "Ok"
 }
 ```
 <api>`GET /v1/customer/order-requests/:requestKey`</api>
 
 Returns a single order request.
 
-#### Attributes
+#### Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 requestKey **required** | *guid* | Key

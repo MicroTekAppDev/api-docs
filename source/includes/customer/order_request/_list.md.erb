@@ -1,55 +1,29 @@
-### List Order Requests
+### List order requests
 
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/order-requests?page=1&pageSize=30
+curl <%= config[:api_host] %>/v1/customer/order-requests
      -X GET
-     -H 'content-type: application/json'
      -H 'authorization: Bearer your-account-token'
 ```
 > Response:
 
 ```
-200 OK
+Status: 200 OK
 ```
 
 ```json
 {
-    "result": {
-        "page": 1,
-        "pageSize": 30,
-        "pageRecords": 11,
-        "totalPages": 1,
-        "totalRecords": 11,
-        "results": [
-            {
-                "requestKey": "00000000-0000-0000-0000-000000000000",
-                "requestNumber": 36810,
-                "statusCode": 4,
-                "statusName": "Cancelled",
-                "statusReason": null,
-                "statusNote": null,
-                "orderKey": null,
-                "orderNumber": null,
-                "courseKey": "00000000-0000-0000-0000-000000000000",
-                "courseName": "Demo Course",
-                "requestedOn": "2017-10-16T11:28:05.27",
-                "referenceCode": null,
-                "hasRoomRental": false,
-                "hasVirtualLab": true
-            }
-        ]
-    },
-    "status": "Ok"
 }
 ```
 <api>`GET /v1/customer/order-requests`</api>
 
 Returns a list of order requests.
 
-#### Attributes
+#### Parameters
 
 Parameter | Type | Description
 --------- | ---- | -----------
-Pagination *optional* | This endpoint can be [paginated](#api-reference-pagination).
+Pagination *optional* | | This endpoint can be [paginated](#api-reference-pagination).
+
