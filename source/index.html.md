@@ -18,7 +18,8 @@ includes:
   - api_reference/authentication
   - api_reference/pagination
   - api_reference/rate_limits
-  - api_reference/errors
+  - api_reference/http_errors
+  - api_reference/api_errors
 
   - customer/index
   - customer/introduction
