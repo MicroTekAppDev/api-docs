@@ -3,36 +3,35 @@
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/order-requests/room-rentals
-     -X POST
-     -d '{
-            "courseKey": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
-            "purchaseOrderNumber": "99999",
-            "referenceCode": "99999",
-            "eventStartDate": "1/1/2018",
-            "eventEndDate": "1/1/2018",
-            "eventStartTime": "08:00:00",
-            "eventEndTime": "17:00:00",
-            "studentQuantity": 16,
-            "computerQuantity": 1,
-            "includeLunch": true,
-            "includeVtrEquipment": false,
-            "location":
-            {
-                "city":"Chicago",
-                "region":"IL",
-                "country":"US"
-            },
-            "instructorContact":
-            {
-                "firstName": "John",
-                "lastName": "Doe",
-                "email": "John@Doe.com"
-            },
-            "comments": "Additional note"
-        }'
-     -H 'content-type: application/json'
-     -H 'authorization: Bearer your-account-token'
+curl -X POST \
+  <%= config[:api_host] %>/v1/customer/order-requests/room-rentals \
+  -H 'authorization: Bearer your-account-token'
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -d '{
+    "course_key": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
+    "purchase_order_number": "99999",
+    "reference_code": "99999",
+    "event_start_date": "2018-01-01",
+    "event_end_date": "2018-01-01",
+    "event_start_time": "08:00:00",
+    "event_end_time": "17:00:00",
+    "student_quantity": 16,
+    "computer_quantity": 1,
+    "include_lunch": true,
+    "include_vtr_equipment": false,
+    "location": {
+      "city": "Chicago",
+      "region": "IL",
+      "country": "US"
+    },
+    "instructor": {
+      "first_Name": "",
+      "last_Name": "Doe",
+      "email": "John@Doe.com"
+    },
+    "comments": "Additional note"
+  }'
 ```
 > Response:
 
@@ -42,41 +41,42 @@ curl <%= config[:api_host] %>/v1/customer/order-requests/room-rentals
 
 ```json
 {
-    "requestKey": "00000000-0000-0000-0000-000000000000",
+  "request_key": "00000000-0000-0000-0000-000000000000"
 }
 ```
 
 <api>`POST /v1/customer/order-requests/room-rentals`</api>
 
-Creates a new room rental order request. The response body will include the order requests `requestKey`, which can be used to query a request for status updates.
+Creates a new room rental order request. The response body will include the order requests `request_key`,
+which can be used to query a request for status updates.
 
 Parameter | Type | Description
---------- | ---- | -----------
-courseKey **required** | *guid* | The course unique identifier
-purchaseOrderNumber *optional* | *string* | Your purchase order number
-referenceCode *optional* | *string* | Provides a way to map our data with yours
-eventStartDate **required** | *date* | Date when event starts
-eventEndDate **required** | *date* | Date when the event ends
-eventStartTime **required** | *timespan* | The start time of the event
-eventEndTime **required** | *timespan* | The end time of the event
-studentQuantity **required** | *int* | The number of students attending the event
-computerQuantity **required** | *int* | The number of computers required
-includeLunch *optional* | *boolean* | Should lunch be provided
-includeVtrEquipment *optional* | *boolean* | Will this evenet make use of MiroTek''s VTR offering
-location | *object* | Contains an `object` ([see location](#customer-api-order-request-create-room-rental-location-object-attributes))
-instructorContact  | *object* | Contains an `object` ([see instructor](#customer-api-order-request-create-room-rental-instructor-object-attributes))
+--------- | ----- | -----------
+course_key **required** | *guid* | The course unique identifier
+purchase_order_number *optional* | *string* | Your purchase order number
+reference_code *optional* | *string* | Provides a way to map our data with yours
+event_start_date **required** | *date*<span>yyyy-mm-dd</span> | Date when event starts
+event_end_date **required** | *date*<span>yyyy-mm-dd</span> | Date when the event ends
+event_start_time **required** | *time*<span>HH:mm:ss</span> | The start time of the event
+event_end_time **required** | *time*<span>HH:mm:ss</span> | The end time of the event
+student_quantity **required** | *int* | The number of students attending the event
+computer_quantity **required** | *int* | The number of computers required
+include_lunch *optional* | *bool* | Should lunch be provided
+include_vtr_equipment *optional* | *bool* | Will this evenet make use of MiroTek''s VTR offering
+location **required** | *object* | Contains an `object` ([see location](#customer-api-order-requests-create-a-room-rental-order-request-location-object))
+instructor *optional* | *object* | Contains an `object` ([see instructor](#customer-api-order-requests-create-a-room-rental-order-request-instructor-object))
 comments *optional* | *string* | Additional comments that MircroTek should be aware of
 
-#### Location Object Attributes
+#### Location Object
 Parameter | Type | Description
 --------- | ---- | -----------
 city *required* | *string* | City
 region *required* | *string* | State, Province or Region
 country *required* | *string* | Country
 
-#### Instructor Object Attributes
+#### Instructor Object
 Parameter | Type | Description
 --------- | ---- | -----------
-firstName *optional* | *string* | First Name
-lastName *optional* | *string* | Last Name
+first_Name *optional* | *string* | First Name
+last_Name *optional* | *string* | Last Name
 email *optional* | *string* | Email Address

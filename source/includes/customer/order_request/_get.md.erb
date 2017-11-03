@@ -3,9 +3,11 @@
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/order-requests/:requestKey
-     -X GET
-     -H 'authorization: Bearer your-account-token'
+curl -X GET \
+  <%= config[:api_host] %>/v1/customer/order-requests/:request_key \
+  -H 'authorization: Bearer your-account-token'
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
 ```
 > Response:
 
@@ -15,12 +17,46 @@ Status: 200 OK
 
 ```json
 {
+  "request_key": "0b5738e1-9d57-4404-af2b-236a799cf221",
+  "request_number": 36810,
+  "status_code": 4,
+  "status_name": "Cancelled",
+  "status_reason": null,
+  "status_note": null,
+  "order_key": null,
+  "order_number": null,
+  "course_key": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
+  "course_name": "Centrify Advanced Track",
+  "requested_on": "2017-10-16T11:28:05",
+  "requested_by": "Joe Rogers",
+  "purchase_order_number": null,
+  "reference_code": null,
+  "room_rental": null,
+  "virtual_lab": {
+    "service_key": null,
+    "service_number": null,
+    "time_zone_key": "2771621e-acf2-4b09-9d03-9bed09a629d8",
+    "time_zone_name": "(GMT-07:00) Mountain Time (US & Canada)",
+    "student_quantity": 8,
+    "instructor_quantity": 1,
+    "observer_quantity": 0,
+    "virtual_machine_rentention_in_days": 0,
+    "sessions": [
+      {
+        "start_date": "2017-10-23",
+        "end_date": "2017-10-23",
+        "start_time": "08:00:00",
+        "end_time": "17:00:00"
+      }
+    ]
+  }
 }
+
 ```
-<api>`GET /v1/customer/order-requests/:requestKey`</api>
+<api>`GET /v1/customer/order-requests/:request_key`</api>
 
 Returns a single order request.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-requestKey **required** | *guid* | Key
+request_key **required** | *guid* | Key

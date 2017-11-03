@@ -3,10 +3,13 @@
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/orders
-     -X GET
-     -H 'authorization: Bearer your-account-token'
+curl -X GET \
+  <%= config[:api_host] %>/v1/customer/orders \
+  -H 'authorization: Bearer your-account-token' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
 ```
+
 > Response:
 
 ```
@@ -15,6 +18,27 @@ Status: 200 OK
 
 ```json
 {
+  "page": 1,
+  "page_size": 1,
+  "page_records": 1,
+  "total_pages": 116,
+  "total_records": 116,
+  "results": [
+    {
+      "order_key": "fe17abff-b839-4a74-843d-1305bee58146",
+      "order_number": 398165,
+      "status_code": 2,
+      "status_name": "Delivered",
+      "start_date": "2015-10-19",
+      "end_date": "2015-10-22",
+      "course_key": "ab0c3525-6bee-4327-b1db-5225ee91817a",
+      "course_name": "Centrify Server Suite Enterprise Edition (4 days)",
+      "reference_code": null,
+      "has_room_rentals": false,
+      "has_virtual_labs": true,
+      "has_virtual_meeting": false
+    }
+  ]
 }
 ```
 <api>`GET /v1/customer/orders`</api>

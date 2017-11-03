@@ -3,18 +3,14 @@
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/courses/:courseKey
-     -X GET
-     -H 'authorization: Bearer your-account-token'
+curl -X GET \
+  <%= config[:api_host] %>/v1/customer/courses/:course_key \
+  -H 'authorization: Bearer your-account-token'
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
 ```
 
 ```csharp
-var client = new RestClient("<%= config[:api_host] %>/v1/customer/course/get");
-var request = new RestRequest(Method.POST);
-request.AddHeader("content-type", "application/json");
-request.AddHeader("authorization", "Bearer {token}");
-request.AddParameter("courseKey", "00000000-0000-0000-0000-000000000000"", ParameterType.RequestBody);
-IRestResponse response = client.Execute(request);
 ```
 
 > Response:
@@ -25,13 +21,20 @@ IRestResponse response = client.Execute(request);
 
 ```json
 {
+  "course_key": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
+  "course_name": "Centrify Advanced Track",
+  "course_code": null,
+  "description": null,
+  "is_active": true,
+  "room_rental_ordering_enabled": true,
+  "virtual_lab_ordering_enabled": true
 }
 ```
-<api>`GET /v1/customer/courses/:courseKey`</api>
+<api>`GET /v1/customer/courses/:course_key`</api>
 
 Returns a single course.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-courseKey **required** | *guid* | Key
+course_key **required** | *guid* | Key
 

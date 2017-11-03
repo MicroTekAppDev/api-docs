@@ -53,5 +53,5 @@ includes:
   - appendix/lists/timezone
   - appendix/lists/virtual_lab_datacenters
 
-search: true
+search: false
 ---

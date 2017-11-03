@@ -1,3 +1,5 @@
 ## Order Requests
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Customers may submit new order requests, make order request cancellations, and retrieve status for virtual lab services and room rental services.
+
+Before booking your event, an order request goes through an internal verification process to ensure that all resources needed for a successful delivery are present. During this process, our customer support team may contact you to obtain additional information.

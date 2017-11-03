@@ -3,19 +3,21 @@
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/order-requests/:requestKey/cancel
-     -X POST
-     -H 'authorization: Bearer your-account-token'
+curl -X POST \
+  <%= config[:api_host] %>/v1/customer/order-requests/:request_key/cancel \
+  -H 'authorization: Bearer your-account-token'
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
 ```
 > Response:
 
 ```
 Status: 204 No Content
 ```
-<api>`POST /v1/customer/order-requests/:requestKey/cancel`</api>
+<api>`POST /v1/customer/order-requests/:request_key/cancel`</api>
 
 Cancels an order request
 
 Parameter | Type | Description
 --------- | ---- | -----------
-requestKey **required** | *guid* | Key
+request_key **required** | *guid* | Key

@@ -884,3 +884,11 @@ span.opt {
   font-weight: 400;
   display: block;
 }
+
+.content table td:nth-of-type(2) span {
+  background-color: #fff;
+  color: #bbb;
+  font-size: 12px;
+  font-weight: 400;
+  display: block;
+}

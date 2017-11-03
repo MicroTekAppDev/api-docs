@@ -3,9 +3,11 @@
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/order-requests
-     -X GET
-     -H 'authorization: Bearer your-account-token'
+curl -X GET \
+  <%= config[:api_host] %>/v1/customer/order-requests \
+  -H 'authorization: Bearer your-account-token' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
 ```
 > Response:
 
@@ -15,7 +17,31 @@ Status: 200 OK
 
 ```json
 {
+  "page": 1,
+  "page_size": 1,
+  "page_records": 1,
+  "total_pages": 35,
+  "total_records": 35,
+  "results": [
+    {
+      "request_key": "0b5738e1-9d57-4404-af2b-236a799cf221",
+      "request_number": 36810,
+      "status_code": 4,
+      "status_name": "Cancelled",
+      "status_reason": null,
+      "status_note": null,
+      "order_key": null,
+      "order_number": null,
+      "course_key": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
+      "course_name": "Centrify Advanced Track",
+      "requested_on": "2017-10-16T11:28:05",
+      "reference_code": null,
+      "has_room_rental": false,
+      "has_virtual_lab": true
+    }
+  ]
 }
+
 ```
 <api>`GET /v1/customer/order-requests`</api>
 

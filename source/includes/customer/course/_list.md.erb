@@ -3,9 +3,11 @@
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/customer/courses
-     -X GET
-     -H 'authorization: Bearer your-account-token'
+curl -X GET \
+  <%= config[:api_host] %>/v1/customer/courses \
+  -H 'authorization: Bearer your-account-token' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
 ```
 
 > Response:
@@ -16,6 +18,22 @@ Status: 200 OK
 
 ```json
 {
+  "page": 1,
+  "page_size": 1,
+  "page_records": 1,
+  "total_pages": 7,
+  "total_records": 7,
+  "results": [
+    {
+      "course_key": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
+      "course_name": "Centrify Advanced Track",
+      "course_code": null,
+      "description": null,
+      "is_active": true,
+      "room_rental_ordering_enabled": true,
+      "virtual_lab_ordering_enabled": true
+    }
+  ]
 }
 ```
 
