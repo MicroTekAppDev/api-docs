@@ -106,11 +106,11 @@ Parameter | Type | Description
 course_key **required** | *guid* | The course unique identifier
 purchase_order_number *optional* | *string* | Purchase order number
 reference_code *optional* | *string* | Provides a way to map our data with yours
-event_time_zone_key **required** | *date*<span>yyyy-mm-dd</span> | Date when event starts
-event_start_date **required** | *date*<span>yyyy-mm-dd</span> | Date when the event ends
-event_end_date **required** | *time*<span>HH:mm:ss</span> | The start time of the event
-event_start_time **required** | *time*<span>HH:mm:ss</span> | The end time of the event
-event_end_time **required** | *guid* | Timezone key.  ([see time zone](#appendix-lists-time-zones))
+event_time_zone_key **required** | *guid* | Timezone to format event_start_time, like “America/Los_Angeles”. For this parameter value, please refer to the id value in ([timezone list](#appendix-lists-time-zones)).
+event_start_date **required** | *date*<span>yyyy-mm-dd</span> | Date when the event starts in ISO datetime format
+event_end_date **required** | *date*<span>yyyy-mm-dd</span> | Date when the event ends in ISO datetime format
+event_start_time **required** | *time*<span>HH:mm:ss</span> | Event start time in ISO datetime format
+event_end_time **required** | *time*<span>HH:mm:ss</span> | Event end time in ISO datetime format
 student_quantity **required** | *int* | The number of students attending the event
 instructor_quantity **required** | *int* | The number of computers required
 observer_quantity *optional* | *int* | The number of computers required
@@ -132,7 +132,7 @@ email **required** | *string* | Email Address
 
 Parameter | Type | Description
 --------- | ---- | -----------
-time_zone_key *see notes* | *guid* | Time zone key ([see time zone](#appendix-lists-time-zones))
+time_zone_key *see notes* | *guid* | Timezone to format event_start_time, like “America/Los_Angeles”. For this parameter value, please refer to the id value in ([timezone list](#appendix-lists-time-zones)).
 location *see notes* | *object* | Contains an `object` ([see location](#customer-api-order-requests-create-a-virtual-lab-order-request-location-object))
 
 #### Preferred Data Center Location Object
