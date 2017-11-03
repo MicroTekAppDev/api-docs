@@ -95,14 +95,14 @@ Parameter | Type | Description
 course_key **required** | *guid* | The course unique identifier
 purchase_order_number *optional* | *string* | Your purchase order number
 reference_code *optional* | *string* | Provides a way to map our data with yours
-event_start_date **required** | *date*<span>yyyy-mm-dd</span> | Date when event starts
-event_end_date **required** | *date*<span>yyyy-mm-dd</span> | Date when the event ends
-event_start_time **required** | *time*<span>HH:mm:ss</span> | The start time of the event
-event_end_time **required** | *time*<span>HH:mm:ss</span> | The end time of the event
+event_start_date **required** | *date*<span>yyyy-mm-dd</span> | Date when the event starts in ISO datetime format
+event_end_date **required** | *date*<span>yyyy-mm-dd</span> | Date when the event ends in ISO datetime format
+event_start_time **required** | *time*<span>HH:mm:ss</span> | Event start time in ISO datetime format
+event_end_time **required** | *time*<span>HH:mm:ss</span> | Event end time in ISO datetime format
 student_quantity **required** | *int* | The number of students attending the event
 computer_quantity **required** | *int* | The number of computers required
 include_lunch *optional* | *bool* | Should lunch be provided
-include_vtr_equipment *optional* | *bool* | Will this evenet make use of MiroTek''s VTR offering
+include_vtr_equipment *optional* | *bool* | Will this event make use of MiroTek's VTR offering
 location **required** | *object* | Contains an `object` ([see location](#customer-api-order-requests-create-a-room-rental-order-request-location-object))
 instructor *optional* | *object* | Contains an `object` ([see instructor](#customer-api-order-requests-create-a-room-rental-order-request-instructor-object))
 comments *optional* | *string* | Additional comments that MircroTek should be aware of

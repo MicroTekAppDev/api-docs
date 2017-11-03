@@ -8,20 +8,15 @@ This integration allows users to search MicroTek’s nearby venues and return re
 
 ```shell
 curl -X GET \
-  <%= config[:api_host] %>/v1/partner/venue-locations \
+  <%= config[:api_host] %>/v1/partner/venue-locations?query=Chicago, IL' \
   -H 'authorization: Bearer your-account-token' \
   -H 'content-type: application/json' \
-  -H 'cache-control: no-cache' \
-  -d '
-  {
-    "query": "chicago",
-    "radius": 30
-  }'
+  -H 'cache-control: no-cache'
 ```
 
 ```csharp
 var client = new RestClient("<%= config[:api_host] %>/v1");
-var request = new RestRequest("partner/venue-locations?query=:query&radius=:radius", Method.GET);
+var request = new RestRequest("partner/venue-locations?query=Chicago, IL", Method.GET);
 request.AddHeader("authorization", "Bearer {token}");
 request.AddHeader("content-type", "application/json");
 request.AddHeader("cache-control", "no-cache");
@@ -36,29 +31,27 @@ var response = client.Execute(request);
 
 ```json
 {
-    "type": "Geographic Distance",
-    "query": "chicago",
-    "radius": 30,
-    "geographic_areas":
-    [
-      {
-        "city": "Chicago",
-        "region": "IL",
-        "country": "US",
-        "latitude": 41.899078333333335,
-        "longitude": -87.664288,
-        "venues":
-        [
-          {
-            "id": 50026,
-            "name": "MicroTek - Chicago",
-            "latitude": 41.881,
-            "longitude": -87.634704
-          }
-        ]
-      }
-    ]
-  }
+  "type": "Geographic Distance",
+  "query": "chicago",
+  "radius": 30,
+  "geographic_areas": [
+    {
+      "city": "Chicago",
+      "region": "IL",
+      "country": "US",
+      "latitude": 41.899078333333335,
+      "longitude": -87.664288,
+      "venues": [
+        {
+          "id": 50026,
+          "name": "MicroTek - Chicago",
+          "latitude": 41.881,
+          "longitude": -87.634704
+        }
+      ]
+    }
+  ]
+}
 ```
 
 <api>`GET /v1/partner/venue-locations?query=chicago`</api>
@@ -68,4 +61,4 @@ Performs a facility search around a geographic area
 Parameter | Type | Description
 --------- | ---- | -----------
 query **required** | *string* | A geopgrahic area such as a city, state or country
-radius **optional** | *double* | Search radius in miles. Defaults to 30 miles
+radius *optional* | *int* | Search radius in miles. Defaults to 30 miles
