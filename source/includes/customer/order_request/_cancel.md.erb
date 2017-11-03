@@ -5,15 +5,26 @@
 ```shell
 curl -X POST \
   <%= config[:api_host] %>/v1/customer/order-requests/:request_key/cancel \
-  -H 'authorization: Bearer your-account-token'
-  -H 'cache-control: no-cache' \
+  -H 'authorization: Bearer your-account-token' \
   -H 'content-type: application/json' \
+  -H 'cache-control: no-cache'
 ```
+
+```csharp
+var client = new RestClient("<%= config[:api_host] %>/v1/customer/order-requests/:request_key/cancel");
+var request = new RestRequest(Method.POST);
+request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("content-type", "application/json");
+request.AddHeader("cache-control", "no-cache");
+var response = client.Execute(request);
+```
+
 > Response:
 
 ```
 Status: 204 No Content
 ```
+
 <api>`POST /v1/customer/order-requests/:request_key/cancel`</api>
 
 Cancels an order request

@@ -5,21 +5,27 @@
 ```shell
 curl -X POST \
   <%= config[:api_host] %>/v1/partner/referrals/customer-leads \
-  -H 'authorization: Bearer your-account-token'
-  -H 'cache-control: no-cache' \
+  -H 'authorization: Bearer your-account-token' \
   -H 'content-type: application/json' \
-  -d '{
+  -H 'cache-control: no-cache' \
+  -d '
+  {
     "first_name": "John",
     "last_name": "Doe",
     "company": "MicroTek",
-    "email": "johndoe@johndoe.com",
+    "email": "john@doe.com",
     "phone": "123-456-7890",
-    "additional_details": "This is a test.  It is safe to delete me.",
-    "services": [ "service 1", "service 2", "service 3" ],
-    "subscribe_news_letter": "False",
+    "additional_details": "This is a test. It is safe to delete me.",
+    "services":
+    [
+      "service 1",
+      "service 2",
+      "service 3"
+    ],
+    "subscribe_news_letter": false,
     "venue_id": null,
     "lead_source": "mclabs.co.uk",
-    "is_training_rollout": "False",
+    "is_training_rollout": false,
     "rollout_begin": null,
     "cities": null,
     "web_channel": "1",
@@ -30,19 +36,52 @@ curl -X POST \
     "entry_url": "6",
     "web_campaign": "7",
     "web_ad_group": "8"
-}'
+  }'
 ```
 
 ```csharp
+var client = new RestClient("<%= config[:api_host] %>/v1/partner/referrals/customer-leads");
+var request = new RestRequest(Method.POST);
+request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("content-type", "application/json");
+request.AddHeader("cache-control", "no-cache");
+request.AddParameter("application/json",
+@"{
+  "first_name": "John",
+  "last_name": "Doe",
+  "company": "MicroTek",
+  "email": "john@doe.com",
+  "phone": "123-456-7890",
+  "additional_details": "This is a test. It is safe to delete me.",
+  "services":
+  [
+    "service 1",
+    "service 2",
+    "service 3"
+  ],
+  "subscribe_news_letter": false,
+  "venue_id": null,
+  "lead_source": "mclabs.co.uk",
+  "is_training_rollout": false,
+  "rollout_begin": null,
+  "cities": null,
+  "web_channel": "1",
+  "web_source": "2",
+  "conversion_url": "3",
+  "pre_conversion_url": "4",
+  "referer_url": "5",
+  "entry_url": "6",
+  "web_campaign": "7",
+  "web_ad_group": "8"
+}",
+ParameterType.RequestBody);
+var response = client.Execute(request);
 ```
 
 > Response:
 
 ```
 201 Created
-```
-
-```json
 ```
 
 <api>`POST /v1/partner/referrals/customer-leads`</api>
@@ -55,13 +94,13 @@ first_name **required** | *string* | Sample text
 last_name *required* | *string* | Sample text
 company *optional* | *string* | Sample text
 email **required** | *string* | Sample text
-phone **required** | *dstringate* | Sample text
-additional_details **optional** | **string** | *time* | Sample text
-services **optional** | *string* | Sample text
-subscribe_news_letter **optional**| **string** | *int* | Sample text
+phone **required** | *string* | Sample text
+additional_details **optional** | *string* | Sample text
+services **optional** | *string array* | Sample text
+subscribe_news_letter **optional**| *bool* | Sample text
 venue_id **optional** | *string* | Sample text
 lead_source *optional* | *string* | Sample text
-is_training_rollout *optional* | *string* | Sample text
+is_training_rollout *optional* | *bool* | Sample text
 rollout_begin **optional** | *string* | Sample text
 cities *optional* | *string* | Sample text
 web_channel *required* | *string* | Sample text

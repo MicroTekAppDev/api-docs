@@ -5,10 +5,20 @@
 ```shell
 curl -X GET \
   <%= config[:api_host] %>/v1/customer/order-requests/:request_key \
-  -H 'authorization: Bearer your-account-token'
-  -H 'cache-control: no-cache' \
+  -H 'authorization: Bearer your-account-token' \
   -H 'content-type: application/json' \
+  -H 'cache-control: no-cache'
 ```
+
+```csharp
+var client = new RestClient("<%= config[:api_host] %>/v1/customer/order-requests/:request_key");
+var request = new RestRequest(Method.GET);
+request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("content-type", "application/json");
+request.AddHeader("cache-control", "no-cache");
+var response = client.Execute(request);
+```
+
 > Response:
 
 ```
@@ -31,8 +41,28 @@ Status: 200 OK
   "requested_by": "Joe Rogers",
   "purchase_order_number": null,
   "reference_code": null,
-  "room_rental": null,
-  "virtual_lab": {
+  "room_rental":
+  {
+    "service_key": null,
+    "service_number": null,
+    "location":
+    {
+      "city": "Chicago",
+      "region": "IL",
+      "country": "US"
+    },
+    "include_weekends": false,
+    "start_date": "2017-10-23",
+    "end_date": "2017-10-23",
+    "start_time": "08:00:00",
+    "end_time": "17:00:00",
+    "student_quantity": 8,
+    "computer_quantity": 8,
+    "include_lunch": true,
+    "include_vtr_equipment": false
+  },
+  "virtual_lab":
+  {
     "service_key": null,
     "service_number": null,
     "time_zone_key": "2771621e-acf2-4b09-9d03-9bed09a629d8",
@@ -41,7 +71,8 @@ Status: 200 OK
     "instructor_quantity": 1,
     "observer_quantity": 0,
     "virtual_machine_rentention_in_days": 0,
-    "sessions": [
+    "sessions":
+    [
       {
         "start_date": "2017-10-23",
         "end_date": "2017-10-23",
@@ -51,8 +82,8 @@ Status: 200 OK
     ]
   }
 }
-
 ```
+
 <api>`GET /v1/customer/order-requests/:request_key`</api>
 
 Returns a single order request.

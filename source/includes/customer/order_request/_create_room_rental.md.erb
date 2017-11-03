@@ -5,10 +5,11 @@
 ```shell
 curl -X POST \
   <%= config[:api_host] %>/v1/customer/order-requests/room-rentals \
-  -H 'authorization: Bearer your-account-token'
-  -H 'cache-control: no-cache' \
+  -H 'authorization: Bearer your-account-token' \
   -H 'content-type: application/json' \
-  -d '{
+  -H 'cache-control: no-cache' \
+  -d '
+  {
     "course_key": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
     "purchase_order_number": "99999",
     "reference_code": "99999",
@@ -20,19 +21,59 @@ curl -X POST \
     "computer_quantity": 1,
     "include_lunch": true,
     "include_vtr_equipment": false,
-    "location": {
+    "location":
+    {
       "city": "Chicago",
       "region": "IL",
       "country": "US"
     },
-    "instructor": {
-      "first_Name": "",
+    "instructor":
+    {
+      "first_Name": "John",
       "last_Name": "Doe",
-      "email": "John@Doe.com"
+      "email": "john@doe.com"
     },
     "comments": "Additional note"
   }'
 ```
+
+```csharp
+var client = new RestClient("<%= config[:api_host] %>/v1/customer/order-requests/room-rentals");
+var request = new RestRequest(Method.POST);
+request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("content-type", "application/json");
+request.AddHeader("cache-control", "no-cache");
+request.AddParameter("application/json",
+@"{
+  "course_key": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
+  "purchase_order_number": "99999",
+  "reference_code": "99999",
+  "event_start_date": "2018-01-01",
+  "event_end_date": "2018-01-01",
+  "event_start_time": "08:00:00",
+  "event_end_time": "17:00:00",
+  "student_quantity": 16,
+  "computer_quantity": 1,
+  "include_lunch": true,
+  "include_vtr_equipment": false,
+  "location":
+  {
+    "city": "Chicago",
+    "region": "IL",
+    "country": "US"
+  },
+  "instructor":
+  {
+    "first_Name": "John",
+    "last_Name": "Doe",
+    "email": "john@doe.com"
+  },
+  "comments": "Additional note"
+}",
+ParameterType.RequestBody);
+var response = client.Execute(request);
+```
+
 > Response:
 
 ```
