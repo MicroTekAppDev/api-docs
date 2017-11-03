@@ -48,39 +48,38 @@ var request = new RestRequest(Method.POST);
 request.AddHeader("authorization", "Bearer {token}");
 request.AddHeader("content-type", "application/json");
 request.AddHeader("cache-control", "no-cache");
-request.AddParameter("application/json",
-@"{
-  "course_key": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
-  "purchase_order_number": "99999",
-  "reference_code": "99999",
-  "event_time_zone_key": "3e792b8f-a706-4a52-bfa1-be291c811c92",
-  "event_start_date": "2018-01-01",
-  "event_end_date": "2018-01-01",
-  "event_start_time": "08:00:00",
-  "event_end_time": "17:00:00",
-  "student_quantity": 16,
-  "instructor_quantity": 1,
-  "observer_quantity": 1,
-  "instructor":
+request.AddJsonBody(new
+{
+  course_key = "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
+  purchase_order_number = "99999",
+  reference_code = "99999",
+  event_time_zone_key = "3e792b8f-a706-4a52-bfa1-be291c811c92",
+  event_start_date = "2018-01-01",
+  event_end_date = "2018-01-01",
+  event_start_time = "08:00:00",
+  event_end_time = "17:00:00",
+  student_quantity = 16,
+  instructor_quantity = 1,
+  observer_quantity = 1,
+  instructor = new
   {
-    "first_name": "John",
-    "last_name": "Doe",
-    "email": "john@doe.com"
+    first_name = "John",
+    last_name = "Doe",
+    email = "john@doe.com"
   },
-  "preferred_data_center":
+  preferred_data_center = new
   {
-    "time_zone_key": null,
-    "location":
+    time_zone_key = null,
+    location = new
     {
-      "city": "Chicago",
-      "region": "IL",
-      "country": "US"
+      city = "Chicago",
+      region = "IL",
+      country = "US"
     }
   },
-  "virtual_machine_rentention_in_days": 0,
-  "comments": "Additional note"
-}",
-ParameterType.RequestBody);
+  virtual_machine_rentention_in_days = 0,
+  comments = "Additional note"
+});
 var response = client.Execute(request);
 ```
 
