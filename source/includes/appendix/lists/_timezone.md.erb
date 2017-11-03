@@ -1,0 +1,258 @@
+### Time Zones
+
+> Request:
+
+```shell
+curl -X GET \
+  <%= config[:api_host] %>/v1/reference/time-zones \
+  -H 'authorization: Bearer your-account-token' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+```
+
+> Response:
+
+```
+Status: 200 OK
+```
+
+```json
+[
+  {
+    "time_zone_key": "3e792b8f-a706-4a52-bfa1-be291c811c92",
+    "time_zone_name": "(GMT-05:00) Eastern Time (US & Canada)"
+  }
+]
+
+```
+
+<api>`POST /v1/reference/time-zones`</api>
+
+
+Key | Name
+--- | ----
+Pacific/Midway|Midway Island, Samoa
+Pacific/Pago_Pago|Pago Pago
+Pacific/Honolulu|Hawaii
+America/Anchorage|Alaska
+America/Vancouver|Vancouver
+America/Los_Angeles|Pacific Time (US and Canada)
+America/Tijuana|Tijuana
+America/Edmonton|Edmonton
+America/Denver|Mountain Time (US and Canada)
+America/Phoenix|Arizona
+America/Mazatlan|Mazatlan
+America/Winnipeg|Winnipeg
+America/Regina|Saskatchewan
+America/Chicago|Central Time (US and Canada)
+America/Mexico_City|Mexico City
+America/Guatemala|Guatemala
+America/El_Salvador|El Salvador
+America/Managua|Managua
+America/Costa_Rica|Costa Rica
+America/Montreal|Montreal
+America/New_York|Eastern Time (US and Canada)
+America/Indianapolis|Indiana (East)
+America/Panama|Panama
+America/Bogota|Bogota
+America/Lima|Lima
+America/Halifax|Halifax
+America/Puerto_Rico|Puerto Rico
+America/Caracas|Caracas
+America/Santiago|Santiago
+America/St_Johns|Newfoundland and Labrador
+America/Montevideo|Montevideo
+America/Araguaina|Brasilia
+America/Argentina/Buenos_Aires|Buenos Aires, Georgetown
+America/Godthab|Greenland
+America/Sao_Paulo|Sao Paulo
+Atlantic/Azores|Azores
+Canada/Atlantic|Atlantic Time (Canada)
+Atlantic/Cape_Verde|Cape Verde Islands
+UTC|Universal Time UTC
+Etc/Greenwich|Greenwich Mean Time
+Europe/Belgrade|Belgrade, Bratislava, Ljubljana
+CET|Sarajevo, Skopje, Zagreb
+Atlantic/Reykjavik|Reykjavik
+Europe/Dublin|Dublin
+Europe/London|London
+Europe/Lisbon|Lisbon
+Africa/Casablanca|Casablanca
+Africa/Nouakchott|Nouakchott
+Europe/Oslo|Oslo
+Europe/Copenhagen|Copenhagen
+Europe/Brussels|Brussels
+Europe/Berlin|Amsterdam, Berlin, Rome, Stockholm, Vienna
+Europe/Helsinki|Helsinki
+Europe/Amsterdam|Amsterdam
+Europe/Rome|Rome
+Europe/Stockholm|Stockholm
+Europe/Vienna|Vienna
+Europe/Luxembourg|Luxembourg
+Europe/Paris|Paris
+Europe/Zurich|Zurich
+Europe/Madrid|Madrid
+Africa/Bangui|West Central Africa
+Africa/Algiers|Algiers
+Africa/Tunis|Tunis
+Africa/Harare|Harare, Pretoria
+Africa/Nairobi|Nairobi
+Europe/Warsaw|Warsaw
+Europe/Prague|Prague Bratislava
+Europe/Budapest|Budapest
+Europe/Sofia|Sofia
+Europe/Istanbul|Istanbul
+Europe/Athens|Athens
+Europe/Bucharest|Bucharest
+Asia/Nicosia|Nicosia
+Asia/Beirut|Beirut
+Asia/Damascus|Damascus
+Asia/Jerusalem|Jerusalem
+Asia/Amman|Amman
+Africa/Tripoli|Tripoli
+Africa/Cairo|Cairo
+Africa/Johannesburg|Johannesburg
+Europe/Moscow|Moscow
+Asia/Baghdad|Baghdad
+Asia/Kuwait|Kuwait
+Asia/Riyadh|Riyadh
+Asia/Bahrain|Bahrain
+Asia/Qatar|Qatar
+Asia/Aden|Aden
+Asia/Tehran|Tehran
+Africa/Khartoum|Khartoum
+Africa/Djibouti|Djibouti
+Africa/Mogadishu|Mogadishu
+Asia/Dubai|Dubai
+Asia/Muscat|Muscat
+Asia/Baku|Baku, Tbilisi, Yerevan
+Asia/Kabul|Kabul
+Asia/Yekaterinburg|Yekaterinburg
+Asia/Tashkent|Islamabad, Karachi, Tashkent
+Asia/Calcutta|India
+Asia/Kathmandu|Kathmandu
+Asia/Novosibirsk|Novosibirsk
+Asia/Almaty|Almaty
+Asia/Dacca|Dacca
+Asia/Krasnoyarsk|Krasnoyarsk
+Asia/Dhaka|Astana, Dhaka
+Asia/Bangkok|Bangkok
+Asia/Saigon|Vietnam
+Asia/Jakarta|Jakarta
+Asia/Irkutsk|Irkutsk, Ulaanbaatar
+Asia/Shanghai|Beijing, Shanghai
+Asia/Hong_Kong|Hong Kong
+Asia/Taipei|Taipei
+Asia/Kuala_Lumpur|Kuala Lumpur
+Asia/Singapore|Singapore
+Australia/Perth|Perth
+Asia/Yakutsk|Yakutsk
+Asia/Seoul|Seoul
+Asia/Tokyo|Osaka, Sapporo, Tokyo
+Australia/Darwin|Darwin
+Australia/Adelaide|Adelaide
+Asia/Vladivostok|Vladivostok
+Pacific/Port_Moresby|Guam, Port Moresby
+Australia/Brisbane|Brisbane
+Australia/Sydney|Canberra, Melbourne, Sydney
+Australia/Hobart|Hobart
+Asia/Magadan|Magadan
+SST|Solomon Islands
+Pacific/Noumea|New Caledonia
+Asia/Kamchatka|Kamchatka
+Pacific/Fiji|Fiji Islands, Marshall Islands
+Pacific/Auckland|Auckland, Wellington
+Asia/Kolkata|Mumbai, Kolkata, New Delhi
+Europe/Kiev|Kiev
+America/Tegucigalpa|Tegucigalpa
+Pacific/Apia|Independent State of Samoa
+
+Key | Name
+----|-----
+3e792b8f-a706-4a52-bfa1-be291c811c92 | (GMT-05:00) Eastern Time (US & Canada)
+8ab69052-5a16-4b8e-9d24-a622d4d2f00e | (GMT-06:00) Central Time (US & Canada)
+2771621e-acf2-4b09-9d03-9bed09a629d8 | (GMT-07:00) Mountain Time (US & Canada)
+20b4965a-9714-4ba8-a870-f1e6e8ab3ee3 | (GMT-08:00) Pacific Time (US & Canada)
+3cdf222d-49d4-45dc-8931-4a2b9f0e6055 | (GMT-09:00) Alaska
+8d2681f1-5da6-45f0-8a4a-6e28f5be2b0c | (GMT-10:00) Hawaii
+8e23a8eb-71d3-40bc-a637-fb7b5142083b | (GMT-12:00) International Date Line West
+95b28121-12b2-44bc-a4ec-b265ba343cc4 | (GMT-11:00) Midway Island, Samoa
+158b662f-956b-46c0-b9ce-37beeef13e11 | (GMT-08:00) Tijuana, Baja California
+a4715259-6cfe-4890-add3-ae327cbe1029 | (GMT-07:00) Arizona
+3af5d030-be1d-4e95-84a1-8cf66c94c515 | (GMT-07:00) Chihuahua, La Paz, Mazatlan
+333f5483-f860-49fb-b152-ed2245467ca9 | (GMT-06:00) Central America
+3a3b9ea1-f1a8-45be-b11f-28fee3721ee3 | (GMT-06:00) Guadalajara, Mexico City, Monterrey
+7d10b3b0-9767-48b2-a07e-2cfbb4601e90 | (GMT-06:00) Saskatchewan
+2e75ff13-1111-4a1f-85ea-5595de3c6d2c | (GMT-05:00) Bogota, Lima, Quito, Rio Branco
+d0a3c181-dfe2-4b7d-ac9b-2a0d40e18051 | (GMT-05:00) Indiana (East)
+f6a794a6-529c-411f-b606-f9af1c28eb3a | (GMT-04:30) Caracas
+5c727d73-30bb-4458-8a7c-7a8e342fdfd8 | (GMT-04:00) Atlantic Time (Canada)
+8b719fbc-e116-4587-a0ad-497e26c8a08e | (GMT-04:00) La Paz
+464333d1-1c43-4101-b53a-58dc4d6afd51 | (GMT-04:00) Manaus
+40d45976-17bb-47cf-aa5c-dcc4022ddacb | (GMT-04:00) Santiago
+7bfe55a8-68f2-4778-a367-42ab113ebe6e | (GMT-03:30) Newfoundland
+3cd5339f-7cb6-4725-805a-58030e6fb3b9 | (GMT-03:00) Brasilia
+f61a425c-5b63-46be-85d5-61df9fbfc7bf | (GMT-03:00) Buenos Aires
+33af9916-0766-47cd-a5d1-89f5cb2a9d02 | (GMT-03:00) Georgetown
+0fffba72-a428-4a28-a527-53cea18ffd87 | (GMT-03:00) Greenland
+31624a25-3f2c-4730-98fd-4eca903b6a6c | (GMT-03:00) Montevideo
+0e96d817-f280-4652-ab8c-5c39582bca2a | (GMT-02:00) Mid-Atlantic
+4dccdf87-9d0c-4679-af2d-f56a86debca8 | (GMT-01:00) Azores
+bd4c4a57-dc44-4313-9dda-cacc470042c2 | (GMT-01:00) Cape Verde Is.
+7fae6e4d-ec55-4de2-8ca1-663f1ad3b688 | (GMT) Casablanca
+de2fd407-5027-412a-9aef-097cc9690199 | (GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London
+70c91ebd-4f78-48d2-b0d3-0c82c8eb766a | (GMT) Monrovia, Reykjavik
+5b71797a-8953-490f-9757-5f1271278101 | (GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna
+b0b1fc3f-46aa-49e6-9a6f-13fe0d0f0ce7 | (GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague
+6cc7e02f-3a59-4425-b3dc-d13ab8e26fb5 | (GMT+01:00) Brussels, Copenhagen, Madrid, Paris
+81a9ccc6-465f-47c0-b814-86f0f963cea3 | (GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb
+3b262b3e-4db8-48ed-8c8f-07476e96aace | (GMT+01:00) West Central Africa
+a9467cf1-8d67-44b4-9f54-736e48d28540 | (GMT+02:00) Amman
+29db3b68-1df2-46b9-a7c4-477cdba37923 | (GMT+02:00) Athens, Bucharest, Istanbul
+7c42f1ec-251f-4499-9d31-5748a411b591 | (GMT+02:00) Beirut
+37ac8d3d-7e96-4200-8b23-679925cb3c3d | (GMT+02:00) Cairo
+87a20bea-c2c2-4f81-8a56-1264abfd4d25 | (GMT+02:00) Harare, Pretoria
+b385215f-7bc9-40ca-8dff-bb69128e55a8 | (GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius
+73c08803-638f-48b2-bbfb-13ec749f4c3c | (GMT+02:00) Jerusalem
+9cc91abf-332e-47cc-bbbf-f135bcd9a68c | (GMT+02:00) Minsk
+9dbf9eb7-e9ae-4653-881b-c9f6a1d04b21 | (GMT+02:00) Windhoek
+97e09d35-4e30-4649-8d3b-817f0efa95d5 | (GMT+03:00) Baghdad
+e9759c86-aada-4a61-8902-5830201ac426 | (GMT+03:00) Kuwait, Riyadh
+7286ee66-85d4-4669-ad11-0c70677fbe61 | (GMT+03:00) Moscow, St. Petersburg, Volgograd
+045cddd2-0adf-45ad-a369-14ab910ee656 | (GMT+03:00) Nairobi
+91b741b0-222b-4206-82cb-b98894dfa808 | (GMT+03:00) Tbilisi
+779ad864-0603-4127-8748-49437820eba1 | (GMT+03:30) Tehran
+6ba364c6-d261-4736-b2bd-439d23bfe4f0 | (GMT+04:00) Abu Dhabi, Muscat
+4c3e1518-2364-48a2-9c4e-406fd447f88c | (GMT+04:00) Baku
+8be715eb-30e1-4b3e-a249-127d336ec54d | (GMT+04:00) Yerevan
+7c3060fc-da9c-4fec-8d04-3d3e49972b1c | (GMT+04:30) Kabul
+da58ed61-feec-4519-9fc1-0588a8a1f53b | (GMT+05:00) Ekaterinburg
+1cfaf142-5445-444c-bdc4-4230b7853467 | (GMT+05:00) Islamabad, Karachi
+bde00fb3-c83b-46df-bafc-b1c43613f349 | (GMT+05:00) Tashkent
+db256ee4-324b-40b2-bc47-1407bb328c06 | (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi
+d20eadaa-1eb2-4942-8ee4-658921d6b4d4 | (GMT+05:30) Sri Jayawardenepura
+ddca6d47-44c6-451a-b6db-c6a6d7b3aa8a | (GMT+05:45) Kathmandu
+9c7d192e-c85d-4d5f-ad5c-2a2da0f67748 | (GMT+06:00) Almaty, Novosibirsk
+c26534d9-d64a-476a-ad5f-1601740c605b | (GMT+06:00) Astana, Dhaka
+4ea36dd4-a65b-4d9c-825d-87e9abae62b5 | (GMT+06:30) Yangon (Rangoon)
+9493d3f8-75f7-4404-b437-b846f653ed41 | (GMT+07:00) Bangkok, Hanoi, Jakarta
+ab8434c3-ce5d-4008-b44e-1a097d75a253 | (GMT+07:00) Krasnoyarsk
+d17a41e8-546d-4ebb-9171-ae6ce0a13af2 | (GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi
+7dfadd75-9030-4fe2-a340-d0eebb823ce7 | (GMT+08:00) Irkutsk, Ulaan Bataar
+e01c9ea4-2200-4299-b559-43b7b94f77a5 | (GMT+08:00) Kuala Lumpur, Singapore
+2a67cda2-00fb-404f-a494-34f97b924591 | (GMT+08:00) Perth
+ec950631-3165-468f-837e-22b368072e70 | (GMT+08:00) Taipei
+0f97b47b-e190-4ab0-ab46-73a671419200 | (GMT+09:00) Osaka, Sapporo, Tokyo
+90482e18-4fdb-42e5-a7f5-1c681ccff6e1 | (GMT+09:00) Seoul
+246ac1b7-8f32-42d5-a22a-b278ddb881b2 | (GMT+09:00) Yakutsk
+4b6888ae-4bcd-4539-a06a-511337348801 | (GMT+09:30) Adelaide
+c049d976-62f1-4137-8df8-d38ab0e4615d | (GMT+09:30) Darwin
+9bdd7d64-e2ce-4885-9855-9068c040accf | (GMT+10:00) Brisbane
+e07ecd9d-1bb8-443f-8699-1774534b7f5f | (GMT+10:00) Canberra, Melbourne, Sydney
+3474ac94-b24c-47a3-b213-b9ea20cb39aa | (GMT+10:00) Guam, Port Moresby
+107e06d0-bed5-455a-8c5e-a9f96996dccf | (GMT+10:00) Hobart
+3255f2c9-296a-4129-a43b-7bf856a7a62e | (GMT+10:00) Vladivostok
+67c9d048-785c-4168-9498-86f8471f0415 | (GMT+11:00) Magadan, Solomon Is., New Caledonia
+7f39950d-cb73-4abe-871c-4a828d902711 | (GMT+12:00) Auckland, Wellington
+22ae1bc1-541b-4ab2-8894-229299b79296 | (GMT+12:00) Fiji, Kamchatka, Marshall Is.
+8c0dfe68-5665-47b3-aef5-94def8fe65ec | (GMT+13:00) Nuku'alofa
