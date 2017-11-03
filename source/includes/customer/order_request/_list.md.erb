@@ -6,9 +6,19 @@
 curl -X GET \
   <%= config[:api_host] %>/v1/customer/order-requests \
   -H 'authorization: Bearer your-account-token' \
-  -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
+  -H 'cache-control: no-cache'
 ```
+
+```csharp
+var client = new RestClient("<%= config[:api_host] %>/v1/customer/order-requests");
+var request = new RestRequest(Method.GET);
+request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("content-type", "application/json");
+request.AddHeader("cache-control", "no-cache");
+var response = client.Execute(request);
+```
+
 > Response:
 
 ```
@@ -22,7 +32,8 @@ Status: 200 OK
   "page_records": 1,
   "total_pages": 35,
   "total_records": 35,
-  "results": [
+  "results":
+  [
     {
       "request_key": "0b5738e1-9d57-4404-af2b-236a799cf221",
       "request_number": 36810,
@@ -41,8 +52,8 @@ Status: 200 OK
     }
   ]
 }
-
 ```
+
 <api>`GET /v1/customer/order-requests`</api>
 
 Returns a list of order requests.
@@ -50,4 +61,3 @@ Returns a list of order requests.
 Parameter | Type | Description
 --------- | ---- | -----------
 Pagination *optional* | | This endpoint can be [paginated](#api-reference-pagination).
-

@@ -6,8 +6,17 @@
 curl -X GET \
   <%= config[:api_host] %>/v1/customer/courses \
   -H 'authorization: Bearer your-account-token' \
-  -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
+  -H 'cache-control: no-cache'
+```
+
+```csharp
+var client = new RestClient("<%= config[:api_host] %>/v1/customer/courses");
+var request = new RestRequest(Method.GET);
+request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("content-type", "application/json");
+request.AddHeader("cache-control", "no-cache");
+var response = client.Execute(request);
 ```
 
 > Response:
@@ -23,7 +32,8 @@ Status: 200 OK
   "page_records": 1,
   "total_pages": 7,
   "total_records": 7,
-  "results": [
+  "results":
+  [
     {
       "course_key": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
       "course_name": "Centrify Advanced Track",

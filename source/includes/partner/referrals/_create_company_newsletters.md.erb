@@ -5,15 +5,29 @@
 ```shell
 curl -X POST \
   <%= config[:api_host] %>/v1/partner/referrals/company-newsletters \
-  -H 'cache-control: no-cache' \
+  -H 'authorization: Bearer your-account-token' \
   -H 'content-type: application/json' \
-  -d '{
+  -H 'cache-control: no-cache' \
+  -d '
+  {
     "name": "John Doe",
     "email": "john.doe@nospam.com"
-}'
+  }'
 ```
 
 ```csharp
+var client = new RestClient("<%= config[:api_host] %>/v1/partner/referrals/company-newsletters");
+var request = new RestRequest(Method.POST);
+request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("content-type", "application/json");
+request.AddHeader("cache-control", "no-cache");
+request.AddParameter("application/json",
+@"{
+  "name": "John Doe",
+  "email": "john.doe@nospam.com"
+}",
+ParameterType.RequestBody);
+var response = client.Execute(request);
 ```
 
 > Response:

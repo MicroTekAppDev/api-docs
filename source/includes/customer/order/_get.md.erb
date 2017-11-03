@@ -5,9 +5,18 @@
 ```shell
 curl -X GET \
   <%= config[:api_host] %>/v1/customer/orders/:order_key \
-  -H 'authorization: Bearer your-account-token'
-  -H 'cache-control: no-cache' \
+  -H 'authorization: Bearer your-account-token' \
   -H 'content-type: application/json' \
+  -H 'cache-control: no-cache'
+```
+
+```csharp
+var client = new RestClient("<%= config[:api_host] %>/v1/customer/orders/:order_key");
+var request = new RestRequest(Method.GET);
+request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("content-type", "application/json");
+request.AddHeader("cache-control", "no-cache");
+var response = client.Execute(request);
 ```
 
 > Response:
@@ -28,7 +37,8 @@ Status: 200 OK
   "course_name": "Centrify Advanced Track",
   "purchase_order_number": "99999",
   "reference_code": "99999",
-  "room_rentals": [
+  "room_rentals":
+  [
     {
       "service_key": "89e58d18-a13a-474c-ba98-695f4dd4cac4",
       "service_number": 557117,
@@ -39,12 +49,14 @@ Status: 200 OK
       "end_date": "2017-10-30",
       "venue_key": "8ba813b4-e263-49a1-80fc-0891f33b0c19",
       "venue_name": "MicroTek - Chicago",
-      "venue_contact": {
+      "venue_contact":
+      {
         "name": "Allegra Denes",
         "phone": "312-236-3811",
         "email": "chicago@mclabs.com"
       },
-      "venue_address": {
+      "venue_address":
+      {
         "street1": "230 W Monroe St",
         "street2": "Suite 900",
         "street3": null,
@@ -56,7 +68,8 @@ Status: 200 OK
       },
       "time_zone_key": "8ab69052-5a16-4b8e-9d24-a622d4d2f00e",
       "time_zone_name": "(GMT-06:00) Central Time (US & Canada)",
-      "contract": {
+      "contract":
+      {
         "is_created": true,
         "created_on": "2017-11-02T10:40:03",
         "is_signed": false,
@@ -64,11 +77,18 @@ Status: 200 OK
         "signed_on": null,
         "signed_by": null
       },
-      "evaluation_url":
-        "https://dev-apps.devmclabs.com/instructorevaluation?id=434247",
+      "evaluation_url": "https://apps.mclabs.com/instructorevaluation?id=434247",
       "note": null,
-      "setup_days": [],
-      "session_days": [
+      "setup_days":
+      [
+        {
+          "date": "2017-10-30",
+          "start_time": "08:00:00",
+          "end_time": "17:00:00",
+        }
+      ],
+      "session_days":
+      [
         {
           "date": "2017-10-30",
           "start_time": "08:00:00",
@@ -77,36 +97,105 @@ Status: 200 OK
           "computer_quantity": 1,
           "remote_seat_quantity": 0,
           "physical_seat_quantity": 16,
-          "premium_bandwidth": {
+          "premium_bandwidth":
+          {
             "speed": "5.00 Mbps",
             "quantity": 1,
             "adjusted_quantity": 1,
             "total_quantity": 2
           },
-          "vtr_equipment": {
+          "vtr_equipment":
+          {
             "quantity": 1
           },
-          "remote_desktop": null,
-          "am_snack": null,
-          "pm_snack": null,
-          "beverage": null,
-          "breakfast": null,
-          "catered_lunch": {
+          "remote_desktop":
+          {
+            "quantity": 1
+          },
+          "am_snack":
+          {
+            "type": "AM Snack",
+            "responsibility": "Venue",
+            "serving_time": null,
+            "serving_definition": "bagels, cereal, donuts, fruit, muffins, yogurt",
+            "quantity": 16,
+            "adjusted_quantity": 1,
+            "total_quantity": 17
+          },
+          "pm_snack":
+          {
+            "type": "PM Snack",
+            "responsibility": "Venue",
+            "serving_time": null,
+            "serving_definition": "cookies, pastries, prepackaged sweets, single portion bagged snacks",
+            "quantity": 16,
+            "adjusted_quantity": 1,
+            "total_quantity": 17
+          },
+          "beverage":
+          {
+            "type": "Beverage",
+            "responsibility": "Venue",
+            "serving_time": null,
+            "serving_definition": "bottled tea, bottled water, coffee, juice, soft drinks, tea, water",
+            "quantity": 16,
+            "adjusted_quantity": 1,
+            "total_quantity": 17
+          },
+          "breakfast":
+          {
+            "type": "Continental Breakfast",
+            "responsibility": "Venue",
+            "serving_time": null,
+            "serving_definition": "bagels, cereal, donuts, fruit, muffins, yogurt",
+            "quantity": 16,
+            "adjusted_quantity": 1,
+            "total_quantity": 17
+          },
+          "catered_lunch":
+          {
             "type": "Lunch",
             "responsibility": "Venue",
+            "serving_time": null,
             "serving_definition": "entrée, starch, vegetable",
             "quantity": 16,
             "adjusted_quantity": 1,
             "total_quantity": 17
           },
-          "catered_dinner": null,
-          "custom_catering": null
+          "catered_dinner":
+          {
+            "type": "Custom Dinner",
+            "responsibility": "Venue",
+            "serving_time": null,
+            "serving_definition": "catering dinner description",
+            "quantity": 16,
+            "adjusted_quantity": 1,
+            "total_quantity": 17
+          },
+          "custom_catering":
+          {
+            "type": "Custom Catering",
+            "responsibility": "Venue",
+            "serving_time": null,
+            "serving_definition": "custom catering description",
+            "quantity": 16,
+            "adjusted_quantity": 1,
+            "total_quantity": 17
+          },
         }
       ],
-      "teardown_days": []
+      "teardown_days":
+      [
+        {
+          "date": "2017-10-30",
+          "start_time": "08:00:00",
+          "end_time": "17:00:00",
+        }
+      ]
     }
   ],
-  "virtual_labs": [
+  "virtual_labs":
+  [
     {
       "service_key": "15e26abc-4b3a-4788-815c-3d424e6ea5cb",
       "service_number": 521165,
@@ -118,20 +207,37 @@ Status: 200 OK
       "time_zone_name": "(GMT-08:00) Pacific Time (US & Canada)",
       "lab_url": "https://virtual.mclabs.com",
       "note": null,
-      "users": {
-        "students": [
+      "users":
+      {
+        "students":
+        [
           {
             "username": "SCEN1778H01",
             "password": "SCENH0001"
           }
         ],
-        "observers": []
+        "instructors":
+        [
+          {
+            "username": "ICEN1778H01",
+            "password": "ICENH0001"
+          }
+        ],
+        "observers":
+        [
+          {
+            "username": "OCEN1778H01",
+            "password": "OCENH0001"
+          }
+        ]
       },
-      "sessions": [
+      "sessions":
+      [
         {
           "start_date": "2015-10-19",
-          "end_date": "2015-10-22",
-          "days": [
+          "end_date": "2015-10-19",
+          "days":
+          [
             {
               "date": "2015-10-19",
               "start_time": "08:00:00",
@@ -145,7 +251,8 @@ Status: 200 OK
       ]
     }
   ],
-  "virtual_meeting": {
+  "virtual_meeting":
+  {
     "service_key": "cc71a28b-4439-4f0a-bd50-794382d7bdaa",
     "service_number": 557119,
     "status_code": 3,
@@ -155,10 +262,10 @@ Status: 200 OK
     "time_zone_key": "8ab69052-5a16-4b8e-9d24-a622d4d2f00e",
     "time_zone_name": "(GMT-06:00) Central Time (US & Canada)",
     "meeting_id": null,
-    "meeting_url":
-      "https://dev-apps.devmclabs.com/virtualsupport?id=8ccb3d2f-2eb5-4cbc-ba9d-df5794afe90f",
+    "meeting_url": "https://apps.mclabs.com/virtualsupport?id=8ccb3d2f-2eb5-4cbc-ba9d-df5794afe90f",
     "note": null,
-    "days": [
+    "days":
+    [
       {
         "date": "2017-11-20",
         "start_time": "08:00:00",
@@ -168,9 +275,10 @@ Status: 200 OK
   }
 }
 ```
+
 <api>`GET /v1/customer/orders/:order_key`</api>
 
-Returns a single course.
+Returns a single order.
 
 Parameter | Type | Description
 --------- | ---- | -----------

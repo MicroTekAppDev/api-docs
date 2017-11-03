@@ -5,10 +5,11 @@
 ```shell
 curl -X POST \
   <%= config[:api_host] %>/v1/customer/order-requests/virtual-labs \
-  -H 'authorization: Bearer your-account-token'
-  -H 'cache-control: no-cache' \
+  -H 'authorization: Bearer your-account-token' \
   -H 'content-type: application/json' \
-  -d '{
+  -H 'cache-control: no-cache' \
+  -d '
+  {
     "course_key": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
     "purchase_order_number": "99999",
     "reference_code": "99999",
@@ -20,23 +21,69 @@ curl -X POST \
     "student_quantity": 16,
     "instructor_quantity": 1,
     "observer_quantity": 1,
-    "instructor": {
-        "first_name": "",
-        "last_name": "Doe",
-        "email": "John@Doe.com"
+    "instructor":
+    {
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john@doe.com"
     },
-    "preferred_data_center": {
-        "time_zone_key": "",
-        "location": {
+    "preferred_data_center":
+    {
+      "time_zone_key": null,
+      "location":
+      {
         "city": "Chicago",
         "region": "IL",
         "country": "US"
-        }
+      }
     },
     "virtual_machine_rentention_in_days": 0,
     "comments": "Additional note"
-    }'
+  }'
 ```
+
+```csharp
+var client = new RestClient("<%= config[:api_host] %>/v1/customer/order-requests/virtual-labs");
+var request = new RestRequest(Method.POST);
+request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("content-type", "application/json");
+request.AddHeader("cache-control", "no-cache");
+request.AddParameter("application/json",
+@"{
+  "course_key": "68ce00f1-7d2c-4cbc-b401-2f419a7caf53",
+  "purchase_order_number": "99999",
+  "reference_code": "99999",
+  "event_time_zone_key": "3e792b8f-a706-4a52-bfa1-be291c811c92",
+  "event_start_date": "2018-01-01",
+  "event_end_date": "2018-01-01",
+  "event_start_time": "08:00:00",
+  "event_end_time": "17:00:00",
+  "student_quantity": 16,
+  "instructor_quantity": 1,
+  "observer_quantity": 1,
+  "instructor":
+  {
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john@doe.com"
+  },
+  "preferred_data_center":
+  {
+    "time_zone_key": null,
+    "location":
+    {
+      "city": "Chicago",
+      "region": "IL",
+      "country": "US"
+    }
+  },
+  "virtual_machine_rentention_in_days": 0,
+  "comments": "Additional note"
+}",
+ParameterType.RequestBody);
+var response = client.Execute(request);
+```
+
 > Response:
 
 ```
@@ -45,9 +92,10 @@ curl -X POST \
 
 ```json
 {
-    "request_key": "00000000-0000-0000-0000-000000000000"
-  }
+  "request_key": "00000000-0000-0000-0000-000000000000"
+}
 ```
+
 <api>`POST /v1/customer/order-requests/virtual-labs`</api>
 
 Creates a new virtual lab order request. The response body will include the order request''s `request_key`,
@@ -71,6 +119,13 @@ preferred_data_center **required** | *object* | Contains an `object` ([see prefe
 virtual_machine_rentention_in_days **required** | *int* | Post event access (30 day increments)
 comments *optional* | *string* | Additional comments that MircroTek should be aware of
 
+#### Instructor Object
+Parameter | Type | Description
+--------- | ---- | -----------
+first_name **required** | *string* | First Name
+last_name **required** | *string* | Last Name
+email **required** | *string* | Email Address
+
 #### Preferred Data Center Object
 
 <aside class="notice">Heads Up!  This information is used to select a data cetner based on a geographic area.  You can provide either a time zone or a location.  If both are provided, the location properties will be used.</aside>
@@ -80,17 +135,9 @@ Parameter | Type | Description
 time_zone_key *see notes* | *guid* | Time zone key ([see time zone](#appendix-lists-time-zones))
 location *see notes* | *object* | Contains an `object` ([see location](#customer-api-order-requests-create-a-virtual-lab-order-request-location-object))
 
-
-#### Location Object
+#### Preferred Data Center Location Object
 Parameter | Type | Description
 --------- | ---- | -----------
 city **required** | *string* | City
 region **required** | *string* | State, Province or Region
 country **required** | *string* | Country
-
-#### Instructor Object
-Parameter | Type | Description
---------- | ---- | -----------
-first_name **required** | *string* | First Name
-last_name **required** | *string* | Last Name
-email **required** | *string* | Email Address

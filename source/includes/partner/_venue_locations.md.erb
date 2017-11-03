@@ -7,23 +7,25 @@ This integration allows users to search MicroTek’s nearby venues and return re
 > Request:
 
 ```shell
-curl <%= config[:api_host] %>/v1/partner/room-rentals/find-nearby-venues
-     -X POST
-     -d '{
-            "query": "chicago",
-            "radius": 60
-         }'
-     -H 'content-type: application/json'
-     -H 'authorization: Bearer your-account-token'
+curl -X GET \
+  <%= config[:api_host] %>/v1/partner/venue-locations \
+  -H 'authorization: Bearer your-account-token' \
+  -H 'content-type: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '
+  {
+    "query": "chicago",
+    "radius": 30
+  }'
 ```
 
 ```csharp
-var client = new RestClient("<%= config[:api_host] %>/v1/partner/room-rental/find-nearby-venue");
-var request = new RestRequest(Method.POST);
-request.AddHeader("content-type", "application/json");
+var client = new RestClient("<%= config[:api_host] %>/v1/partner/venue-locations?query=:query&radius=:radius");
+var request = new RestRequest(Method.GET);
 request.AddHeader("authorization", "Bearer {token}");
-request.AddParameter("courseKey", "00000000-0000-0000-0000-000000000000"", ParameterType.RequestBody);
-IRestResponse response = client.Execute(request);
+request.AddHeader("content-type", "application/json");
+request.AddHeader("cache-control", "no-cache");
+var response = client.Execute(request);
 ```
 
 > Response:
@@ -37,14 +39,16 @@ IRestResponse response = client.Execute(request);
     "type": "Geographic Distance",
     "query": "chicago",
     "radius": 30,
-    "geographic_areas": [
+    "geographic_areas":
+    [
       {
         "city": "Chicago",
         "region": "IL",
         "country": "US",
         "latitude": 41.899078333333335,
         "longitude": -87.664288,
-        "venues": [
+        "venues":
+        [
           {
             "id": 50026,
             "name": "MicroTek - Chicago",
@@ -55,8 +59,8 @@ IRestResponse response = client.Execute(request);
       }
     ]
   }
-  
 ```
+
 <api>`GET /v1/partner/venue-locations?query=chicago`</api>
 
 Performs a facility search around a geographic area
@@ -64,5 +68,4 @@ Performs a facility search around a geographic area
 Parameter | Type | Description
 --------- | ---- | -----------
 query **required** | *string* | A geopgrahic area such as a city, state or country
-radius **optional** | *int* | Search radius in miles.  Defaults to 30 miles.
-
+radius **optional** | *double* | Search radius in miles. Defaults to 30 miles
