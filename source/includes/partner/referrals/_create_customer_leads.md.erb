@@ -40,8 +40,8 @@ curl -X POST \
 ```
 
 ```csharp
-var client = new RestClient("<%= config[:api_host] %>/v1/partner/referrals/customer-leads");
-var request = new RestRequest(Method.POST);
+var client = new RestClient("<%= config[:api_host] %>/v1");
+var request = new RestRequest("partner/referrals/customer-leads", Method.POST);
 request.AddHeader("authorization", "Bearer {token}");
 request.AddHeader("content-type", "application/json");
 request.AddHeader("cache-control", "no-cache");

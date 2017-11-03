@@ -11,8 +11,8 @@ curl -X GET \
 ```
 
 ```csharp
-var client = new RestClient("<%= config[:api_host] %>/v1/customer/courses/:course_key");
-var request = new RestRequest(Method.GET);
+var client = new RestClient("<%= config[:api_host] %>/v1");
+var request = new RestRequest("customer/courses/:course_key", Method.GET);
 request.AddHeader("authorization", "Bearer {token}");
 request.AddHeader("content-type", "application/json");
 request.AddHeader("cache-control", "no-cache");

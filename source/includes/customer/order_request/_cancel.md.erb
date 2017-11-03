@@ -11,8 +11,8 @@ curl -X POST \
 ```
 
 ```csharp
-var client = new RestClient("<%= config[:api_host] %>/v1/customer/order-requests/:request_key/cancel");
-var request = new RestRequest(Method.POST);
+var client = new RestClient("<%= config[:api_host] %>/v1");
+var request = new RestRequest("customer/order-requests/:request_key/cancel", Method.POST);
 request.AddHeader("authorization", "Bearer {token}");
 request.AddHeader("content-type", "application/json");
 request.AddHeader("cache-control", "no-cache");
