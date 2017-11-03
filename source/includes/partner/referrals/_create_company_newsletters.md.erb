@@ -21,12 +21,11 @@ var request = new RestRequest(Method.POST);
 request.AddHeader("authorization", "Bearer {token}");
 request.AddHeader("content-type", "application/json");
 request.AddHeader("cache-control", "no-cache");
-request.AddParameter("application/json",
-@"{
-  "name": "John Doe",
-  "email": "john.doe@nospam.com"
-}",
-ParameterType.RequestBody);
+request.AddJsonBody(new
+{
+  name = "John Doe",
+  email = "john.doe@nospam.com"
+});
 var response = client.Execute(request);
 ```
 
