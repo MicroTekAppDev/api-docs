@@ -3,10 +3,20 @@
 > Request:
 
 ```shell
+curl -X GET \
+  <%= config[:api_host] %>/v1/customer/courses?page=1&page_size=X \
+  -H 'authorization: Bearer your-account-token' \
+  -H 'content-type: application/json' \
+  -H 'cache-control: no-cache'
+```
 
-curl https://:environmentUri/api/v1/customer/courses?page=1&pageSize=X
-    --x GET
-    --h 'authorization: Bearer your-account-token'
+```csharp
+var client = new RestClient("<%= config[:api_host] %>/v1");
+var request = new RestRequest("customer/courses?page=1&page_size=X", Method.GET);
+request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("content-type", "application/json");
+request.AddHeader("cache-control", "no-cache");
+var response = client.Execute(request);
 ```
 
 > Response:
@@ -19,8 +29,8 @@ The MicroTek API uses conventional HTTP response codes to indicate errors, and i
 
 HTTP Code | Description
 --------- | -----------
-400 | Bad Request -- Your request sucks.
-401 | Unauthorized -- Your API key is wrong.
+400 | Bad Request -- Your request is not valid.
+401 | Unauthorized -- Your API token is not valid.
 403 | Forbidden -- The resource requested is forbidden.
 404 | Not Found -- The specified resource could not be found.
 405 | Method Not Allowed -- You tried to access a resource with an invalid method.

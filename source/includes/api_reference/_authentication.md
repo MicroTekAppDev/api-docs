@@ -10,17 +10,28 @@ All MicroTek API requests require authentication.
 > Request:
 
 ```shell
-
-
-curl http://idp.mclabs.com/connect/token \
-     -X POST
-    --h 'cache-control: no-cache' \
-    --h 'content-type: application/x-www-form-urlencoded' \
-    --d 'client_id: 00000000-0000-0000-0000-000000000000' \
-    --d 'grant_type: client_credentials' \
-    --d 'client_secret: password' \
-    --d 'scope: public-api'
+curl -X POST \
+  https://idp.mclabs.com/connect/token \
+  -H 'content-type: x-www-form-urlencoded' \
+  -H 'cache-control: no-cache' \
+  -d 'client_id: YOUR_CLIENT_ID' \
+  -d 'client_secret: YOUR_CLIENT_SECRET' \
+  -d 'grant_type: client_credentials' \
+  -d 'scope: public-api'
 ```
+
+```csharp
+var client = new RestClient("https://idp.mclabs.com");
+var request = new RestRequest("connect/token", Method.POST);
+request.AddHeader("content-type", "content-type: x-www-form-urlencoded");
+request.AddHeader("cache-control", "no-cache");
+request.AddParameter("client_id", "YOUR_CLIENT_ID", ParameterType.RequestBody);
+request.AddParameter("client_secret", "YOUR_CLIENT_SECRET", ParameterType.RequestBody);
+request.AddParameter("grant_type", "client_credentials", ParameterType.RequestBody);
+request.AddParameter("scope", "public-api", ParameterType.RequestBody);
+var response = client.Execute(request);
+```
+
 > Response:
 
 ```
@@ -46,9 +57,9 @@ Acquiring an access token is a two-step process:
 
 Parameter | Type | Description
 --------- | ---- | -----------
-grant_type **required** | *string* | Should be "client_credentials"
 client_id **required** | *string* | Your client id
 client_secret **required** | *string* | Your client secret.
+grant_type **required** | *string* | Should be "client_credentials"
 scope **required** | *string* | Should be "public-api"
 
 ### Authenticating Requests
@@ -61,5 +72,6 @@ The request header will look like this: **Authorization: Bearer {your_access_tok
 
 To limit the window of opportunity for attackers in the event an access token is compromised, access tokens expire after a set amout of time. To gain long-lived access to your account, it’s necessary to “refresh” your access when it expires.  Refreshing an access token will invalidate the previous token, if it is still valid.
 
-
-<aside class="warning">Access tokens must not be visible/available in public (widget integration code, client-side JavaScript, etc.).</aside>
+<aside class="warning">
+  Access tokens must not be visible/available in public (widget integration code, client-side JavaScript, etc.).
+</aside>

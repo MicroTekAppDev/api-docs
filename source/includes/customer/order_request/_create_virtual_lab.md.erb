@@ -104,17 +104,17 @@ Parameter | Type | Description
 --------- | ---- | -----------
 course_key **required** | *guid* | The course unique identifier
 purchase_order_number *optional* | *string* | Purchase order number
-reference_code *optional* | *string* | Provides a way to map our data with yours
+reference_code *optional* | *string* | Provides a way to map our data to yours
 event_time_zone_key **required** | *guid* | Timezone to format event_start_time, like “America/Los_Angeles”. For this parameter value, please refer to the id value in ([timezone list](#appendix-lists-time-zones)).
-event_start_date **required** | *date*<span>yyyy-mm-dd</span> | Date when the event starts in ISO datetime format
-event_end_date **required** | *date*<span>yyyy-mm-dd</span> | Date when the event ends in ISO datetime format
-event_start_time **required** | *time*<span>HH:mm:ss</span> | Event start time in ISO datetime format
-event_end_time **required** | *time*<span>HH:mm:ss</span> | Event end time in ISO datetime format
+event_start_date **required** | *date*<span>yyyy-mm-dd</span> | Event start date in ISO date format
+event_end_date **required** | *date*<span>yyyy-mm-dd</span> | Event end date in ISO date format
+event_start_time **required** | *time*<span>hh:mm:ss</span> | Event start time in ISO time format
+event_end_time **required** | *time*<span>hh:mm:ss</span> | Event end time in ISO time format
 student_quantity **required** | *int* | The number of students attending the event
 instructor_quantity **required** | *int* | The number of computers required
 observer_quantity *optional* | *int* | The number of computers required
-instructor **required** | *object* | Contains an `object` ([see instructor](#customer-api-order-requests-create-a-virtual-lab-order-request-instructor-object))
-preferred_data_center **required** | *object* | Contains an `object` ([see preferred data center](#customer-api-order-requests-create-a-virtual-lab-order-request-preferred-data-center-object))
+instructor **required** | *object* | Instructor information ([see instructor](#customer-api-order-requests-create-a-virtual-lab-order-request-instructor-object))
+preferred_data_center **required** | *object* | Preferred data center ([see preferred data center](#customer-api-order-requests-create-a-virtual-lab-order-request-preferred-data-center-object))
 virtual_machine_rentention_in_days **required** | *int* | Post event access (30 day increments)
 comments *optional* | *string* | Additional comments that MircroTek should be aware of
 
@@ -127,12 +127,16 @@ email **required** | *string* | Email Address
 
 #### Preferred Data Center Object
 
-<aside class="notice">Heads Up!  This information is used to select a data cetner based on a geographic area.  You can provide either a time zone or a location.  If both are provided, the location properties will be used.</aside>
+<aside class="notice">
+  Heads Up!
+  This information is used to select a data cetner based on a geographic area.
+  You can provide either a time zone or a location. If both are provided, the location properties will be used.
+</aside>
 
 Parameter | Type | Description
 --------- | ---- | -----------
 time_zone_key *see notes* | *guid* | Timezone to format event_start_time, like “America/Los_Angeles”. For this parameter value, please refer to the id value in ([timezone list](#appendix-lists-time-zones)).
-location *see notes* | *object* | Contains an `object` ([see location](#customer-api-order-requests-create-a-virtual-lab-order-request-location-object))
+location *see notes* | *object* | Preferred data center location ([see preferred data center location](#customer-api-order-requests-create-a-virtual-lab-order-request-preferred-data-center-location-object))
 
 #### Preferred Data Center Location Object
 Parameter | Type | Description
