@@ -37,7 +37,8 @@ Status: 200 OK
   "course_name": "Acme 101",
   "purchase_order_number": "99999",
   "reference_code": "99999",
-  "room_rentals": [
+  "room_rentals":
+  [
     {
       "service_key": "00000000-0000-0000-0000-000000000000",
       "service_number": 999999,
@@ -48,12 +49,14 @@ Status: 200 OK
       "end_date": "2017-10-30",
       "venue_key": "00000000-0000-0000-0000-000000000000",
       "venue_name": "MicroTek - Chicago",
-      "venue_contact": {
+      "venue_contact":
+      {
         "name": "John Doe",
         "phone": "111-222-3333",
         "email": "john.doe@nospam.com"
       },
-      "venue_address": {
+      "venue_address":
+      {
         "street1": "230 W Monroe St",
         "street2": "Suite 900",
         "street3": null,
@@ -65,7 +68,8 @@ Status: 200 OK
       },
       "time_zone_key": "00000000-0000-0000-0000-000000000000",
       "time_zone_name": "(GMT-06:00) Central Time (US & Canada)",
-      "contract": {
+      "contract":
+      {
         "is_created": true,
         "created_on": "2017-11-02T10:40:03",
         "is_signed": false,
@@ -73,17 +77,18 @@ Status: 200 OK
         "signed_on": null,
         "signed_by": null
       },
-      "evaluation_url":
-        "https://apps.mclabs.com/instructorevaluation?id=999999",
+      "evaluation_url":"https://apps.mclabs.com/instructorevaluation?id=999999",
       "note": null,
-      "setup_days": [
+      "setup_days":
+      [
         {
           "date": "2017-10-30",
           "start_time": "08:00:00",
           "end_time": "17:00:00"
         }
       ],
-      "session_days": [
+      "session_days":
+      [
         {
           "date": "2017-10-30",
           "start_time": "08:00:00",
@@ -92,59 +97,63 @@ Status: 200 OK
           "computer_quantity": 1,
           "remote_seat_quantity": 0,
           "physical_seat_quantity": 16,
-          "premium_bandwidth": {
+          "premium_bandwidth":
+          {
             "speed": "5.00 Mbps",
             "quantity": 1,
             "adjusted_quantity": 1,
             "total_quantity": 2
           },
-          "vtr_equipment": {
+          "vtr_equipment":
+          {
             "quantity": 1
           },
-          "remote_desktop": {
+          "remote_desktop":
+          {
             "quantity": 1
           },
-          "am_snack": {
+          "am_snack":
+          {
             "type": "AM Snack",
             "responsibility": "Venue",
             "serving_time": null,
-            "serving_definition":
-              "bagels, cereal, donuts, fruit, muffins, yogurt",
+            "serving_definition": "bagels, cereal, donuts, fruit, muffins, yogurt",
             "quantity": 16,
             "adjusted_quantity": 1,
             "total_quantity": 17
           },
-          "pm_snack": {
+          "pm_snack":
+          {
             "type": "PM Snack",
             "responsibility": "Venue",
             "serving_time": null,
-            "serving_definition":
-              "cookies, pastries, prepackaged sweets, single portion bagged snacks",
+            "serving_definition": "cookies, pastries, prepackaged sweets, single portion bagged snacks",
             "quantity": 16,
             "adjusted_quantity": 1,
             "total_quantity": 17
           },
-          "beverage": {
+          "beverage":
+          {
             "type": "Beverage",
             "responsibility": "Venue",
             "serving_time": null,
-            "serving_definition":
-              "bottled tea, bottled water, coffee, juice, soft drinks, tea, water",
+            "serving_definition": "bottled tea, bottled water, coffee, juice, soft drinks, tea, water",
             "quantity": 16,
             "adjusted_quantity": 1,
             "total_quantity": 17
           },
-          "breakfast": {
+          "breakfast":
+          {
             "type": "Continental Breakfast",
             "responsibility": "Venue",
             "serving_time": null,
-            "serving_definition":
-              "bagels, cereal, donuts, fruit, muffins, yogurt",
+            "serving_definition": "bagels, cereal, donuts, fruit, muffins, yogurt",
             "quantity": 16,
             "adjusted_quantity": 1,
             "total_quantity": 17
           },
-          "catered_lunch": {
+          "catered_lunch":
+          {
             "type": "Lunch",
             "responsibility": "Venue",
             "serving_time": null,
@@ -153,7 +162,8 @@ Status: 200 OK
             "adjusted_quantity": 1,
             "total_quantity": 17
           },
-          "catered_dinner": {
+          "catered_dinner":
+          {
             "type": "Custom Dinner",
             "responsibility": "Venue",
             "serving_time": null,
@@ -162,7 +172,8 @@ Status: 200 OK
             "adjusted_quantity": 1,
             "total_quantity": 17
           },
-          "custom_catering": {
+          "custom_catering":
+          {
             "type": "Custom Catering",
             "responsibility": "Venue",
             "serving_time": null,
@@ -173,7 +184,8 @@ Status: 200 OK
           }
         }
       ],
-      "teardown_days": [
+      "teardown_days":
+      [
         {
           "date": "2017-10-30",
           "start_time": "08:00:00",
@@ -182,7 +194,8 @@ Status: 200 OK
       ]
     }
   ],
-  "virtual_labs": [
+  "virtual_labs":
+  [
     {
       "service_key": "00000000-0000-0000-0000-000000000000",
       "service_number": 999999,
@@ -194,31 +207,37 @@ Status: 200 OK
       "time_zone_name": "(GMT-08:00) Pacific Time (US & Canada)",
       "lab_url": "https://virtual.mclabs.com",
       "note": null,
-      "users": {
-        "students": [
+      "users":
+      {
+        "students":
+        [
           {
             "username": "user1",
             "password": "password"
           }
         ],
-        "instructors": [
+        "instructors":
+        [
           {
             "username": "user2",
             "password": "password"
           }
         ],
-        "observers": [
+        "observers":
+        [
           {
             "username": "user3",
             "password": "password"
           }
         ]
       },
-      "sessions": [
+      "sessions":
+      [
         {
           "start_date": "2015-10-19",
           "end_date": "2015-10-19",
-          "days": [
+          "days":
+          [
             {
               "date": "2015-10-19",
               "start_time": "08:00:00",
@@ -232,7 +251,8 @@ Status: 200 OK
       ]
     }
   ],
-  "virtual_meeting": {
+  "virtual_meeting":
+  {
     "service_key": "00000000-0000-0000-0000-000000000000",
     "service_number": 999999,
     "status_code": 3,
@@ -242,10 +262,10 @@ Status: 200 OK
     "time_zone_key": "00000000-0000-0000-0000-000000000000",
     "time_zone_name": "(GMT-06:00) Central Time (US & Canada)",
     "meeting_id": null,
-    "meeting_url":
-      "https://apps.mclabs.com/virtualsupport?id=00000000-0000-0000-0000-000000000000",
+    "meeting_url": "https://apps.mclabs.com/virtualsupport?id=00000000-0000-0000-0000-000000000000",
     "note": null,
-    "days": [
+    "days":
+    [
       {
         "date": "2017-11-20",
         "start_time": "08:00:00",

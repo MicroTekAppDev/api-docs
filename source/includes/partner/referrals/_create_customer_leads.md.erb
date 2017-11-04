@@ -85,18 +85,18 @@ var response = client.Execute(request);
 
 <api>`POST /v1/partner/referrals/customer-leads`</api>
 
-Creates a customer lead
+Creates a customer lead.
 
 Parameter | Type | Description
 --------- | ----- | -----------
 first_name **required** | *string* | Sample text
 last_name **required** | *string* | Sample text
-company *optional* | *string* | Sample text
+company **required** | *string* | Sample text
 email **required** | *string* | Sample text
 phone *optional* | *string* | Sample text
-additional_details **optional** | *string* | Sample text
-services *optional* | *array:string* | Sample text
-subscribe_news_letter *optional*| *bool* | Sample text
+additional_details *optional* | *string* | Sample text
+services *optional* | *string array* | Sample text
+subscribe_news_letter *optional* | *bool* | Sample text
 venue_id *optional* | *string* | Sample text
 lead_source **required** | *string* | Sample text
 is_training_rollout *optional* | *bool* | Sample text

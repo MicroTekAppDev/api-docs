@@ -87,7 +87,7 @@ var response = client.Execute(request);
 
 <api>`POST /v1/customer/order-requests/room-rentals`</api>
 
-Creates a new room rental order request. The response body will include the order requests `request_key`,
+Creates a new room rental order request. The response body will include the order request's `request_key`,
 which can be used to query a request for status updates.
 
 Parameter | Type | Description
@@ -102,7 +102,7 @@ event_end_time **required** | *time*<span>hh:mm:ss</span> | Event end time in IS
 student_quantity **required** | *int* | The number of students attending the event
 computer_quantity **required** | *int* | The number of computers required
 include_lunch *optional* | *bool* | Should lunch be provided
-include_vtr_equipment *optional* | *bool* | Will this event make use of MiroTek''s VTR offering
+include_vtr_equipment *optional* | *bool* | Will this event make use of MiroTek's VTR offering
 location **required** | *object* | Location of event  ([see location](#customer-api-order-requests-create-a-room-rental-order-request-location-object))
 instructor *optional* | *object* | Instructor information ([see instructor](#customer-api-order-requests-create-a-room-rental-order-request-instructor-object))
 comments *optional* | *string* | Additional comments that MircroTek should be aware of
@@ -110,13 +110,13 @@ comments *optional* | *string* | Additional comments that MircroTek should be aw
 #### Location Object
 Parameter | Type | Description
 --------- | ---- | -----------
-city *required* | *string* | City
-region *required* | *string* | State, Province or Region
-country *required* | *string* | Country
+city *optional* | *string* | City
+region *optional* | *string* | State, Province or Region
+country **required** | *string* | Country
 
 #### Instructor Object
 Parameter | Type | Description
 --------- | ---- | -----------
-first_name *optional* | *string* | First Name
-last_name *optional* | *string* | Last Name
-email *optional* | *string* | Email Address
+first_name **required** | *string* | First Name
+last_name **required** | *string* | Last Name
+email **required** | *string* | Email Address

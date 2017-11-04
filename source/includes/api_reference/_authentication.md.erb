@@ -49,7 +49,7 @@ var response = client.Execute(request);
 Acquiring an access token is a two-step process:
 
 1. Signup for a MicroTek developers account by contacting your account manager.
-2. Call our secure token service for an access token
+2. Call our secure token service for an access token.
 
 <api>`POST https://idp.mclabs.com/connect/token`</api>
 
@@ -70,7 +70,7 @@ The request header will look like this: **Authorization: Bearer {your_access_tok
 
 ### Refreshing Access
 
-To limit the window of opportunity for attackers in the event an access token is compromised, access tokens expire after a set amout of time. To gain long-lived access to your account, it’s necessary to “refresh” your access when it expires.  Refreshing an access token will invalidate the previous token, if it is still valid.
+To limit the window of opportunity for attackers in the event an access token is compromised, access tokens expire after a set amout of time. To gain long-lived access to your account, it's necessary to "refresh" your access when it expires. Refreshing an access token will invalidate the previous token, if it is still valid.
 
 <aside class="warning">
   Access tokens must not be visible/available in public (widget integration code, client-side JavaScript, etc.).
