@@ -5,7 +5,7 @@
 ```shell
 curl -X GET \
   <%= config[:api_host] %>/v1/customer/courses?page=1&page_size=X \
-  -H 'authorization: Bearer your-account-token' \
+  -H 'authorization: Bearer {YOUR_TOKEN}' \
   -H 'content-type: application/json' \
   -H 'cache-control: no-cache'
 ```
@@ -13,7 +13,7 @@ curl -X GET \
 ```csharp
 var client = new RestClient("<%= config[:api_host] %>/v1");
 var request = new RestRequest("customer/courses?page=1&page_size=X", Method.GET);
-request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("authorization", "Bearer {YOUR_TOKEN}");
 request.AddHeader("content-type", "application/json");
 request.AddHeader("cache-control", "no-cache");
 var response = client.Execute(request);
@@ -29,14 +29,14 @@ The MicroTek API uses conventional HTTP response codes to indicate errors, and i
 
 HTTP Code | Description
 --------- | -----------
-400 | Bad Request -- Your request is not valid.
-401 | Unauthorized -- Your API token is not valid.
-403 | Forbidden -- The resource requested is forbidden.
-404 | Not Found -- The specified resource could not be found.
-405 | Method Not Allowed -- You tried to access a resource with an invalid method.
-406 | Not Acceptable -- You requested a format that isn't JSON.
-410 | Gone -- The resource requested has been removed from our servers.
-418 | I'm a teapot.
-429 | Too Many Requests -- You are requesting too much! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We are temporarily offline for maintenance. Please try again later.
+400 | Bad Request -- Your request is not valid
+401 | Unauthorized -- Your API token is not valid
+403 | Forbidden -- The resource requested is forbidden
+404 | Not Found -- The specified resource could not be found
+405 | Method Not Allowed -- You tried to access a resource with an invalid method
+406 | Not Acceptable -- You requested a format that isn't JSON
+410 | Gone -- The resource requested has been removed from our servers
+418 | I'm a teapot
+429 | Too Many Requests -- You are requesting too much (slow down)
+500 | Internal Server Error -- We had a problem with our server (try again later)
+503 | Service Unavailable -- We are temporarily offline for maintenance (try again later)

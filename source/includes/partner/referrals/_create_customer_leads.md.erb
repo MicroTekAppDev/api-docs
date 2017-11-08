@@ -1,11 +1,11 @@
-### Create a customer lead
+### Create a client lead
 
 > Request:
 
 ```shell
 curl -X POST \
   <%= config[:api_host] %>/v1/partner/referrals/customer-leads \
-  -H 'authorization: Bearer your-account-token' \
+  -H 'authorization: Bearer {YOUR_TOKEN}' \
   -H 'content-type: application/json' \
   -H 'cache-control: no-cache' \
   -d '
@@ -42,7 +42,7 @@ curl -X POST \
 ```csharp
 var client = new RestClient("<%= config[:api_host] %>/v1");
 var request = new RestRequest("partner/referrals/customer-leads", Method.POST);
-request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("authorization", "Bearer {YOUR_TOKEN}");
 request.AddHeader("content-type", "application/json");
 request.AddHeader("cache-control", "no-cache");
 request.AddJsonBody(new
@@ -85,28 +85,28 @@ var response = client.Execute(request);
 
 <api>`POST /v1/partner/referrals/customer-leads`</api>
 
-Creates a customer lead.
+Creates a client lead.
 
 Parameter | Type | Description
 --------- | ----- | -----------
-first_name **required** | *string* | Sample text
-last_name **required** | *string* | Sample text
-company **required** | *string* | Sample text
-email **required** | *string* | Sample text
-phone *optional* | *string* | Sample text
-additional_details *optional* | *string* | Sample text
-services *optional* | *string array* | Sample text
-subscribe_news_letter *optional* | *bool* | Sample text
-venue_id *optional* | *string* | Sample text
-lead_source **required** | *string* | Sample text
-is_training_rollout *optional* | *bool* | Sample text
-rollout_begin *optional* | *string* | Sample text
-cities *optional* | *string* | Sample text
-web_channel *optional* | *string* | Sample text
-web_source *optional* | *string* | Sample text
-conversion_url *optional* | *string* | Sample text
-pre_conversion_url *optional* | *string* | Sample text
-referer_url *optional* | *string* | Sample text
-entry_url *optional* | *string* | Sample text
-web_campaign *optional* | *string* | Sample text
-web_ad_group *optional* | *string* | Sample text
+first_name **required** | *string* | First name
+last_name **required** | *string* | Last name
+company **required** | *string* | Company
+email **required** | *string* | Email address
+phone *optional* | *string* | Phone number
+additional_details *optional* | *string* | Comments
+services *optional* | *string array* | Services of interest
+subscribe_news_letter *optional* | *bool* | Subscribe to MicroTek's company news letter
+venue_id *optional* | *string* | Venue code
+lead_source **required** | *string* | Lead source code
+is_training_rollout *optional* | *bool* | Is this a training rollout
+rollout_begin *optional* | *string* | Rollout start date
+cities *optional* | *string* | Rollout cities
+web_channel *optional* | *string* | Web channel code
+web_source *optional* | *string* | Web source code
+conversion_url *optional* | *string* | Conversion URL
+pre_conversion_url *optional* | *string* | Pre-conversion URL
+referer_url *optional* | *string* | Referrer URL
+entry_url *optional* | *string* | Entry URL
+web_campaign *optional* | *string* | Web campaign code
+web_ad_group *optional* | *string* | Web ad group code

@@ -2,8 +2,8 @@
 
 All MicroTek API requests require authentication.
 
-1. [Acquire an access token](#acquire-an-access-token)
-2. [Use the access token to make authenticated requests](#authenticating-requests) 
+1. [Acquire an access token](#api-reference-authentication-acquire-an-access-token)
+2. [Use the access token to make authenticated requests](#api-reference-authentication-authenticating-requests)
 
 ### Acquire an Access Token
 
@@ -14,8 +14,8 @@ curl -X POST \
   https://idp.mclabs.com/connect/token \
   -H 'content-type: x-www-form-urlencoded' \
   -H 'cache-control: no-cache' \
-  -d 'client_id: YOUR_CLIENT_ID' \
-  -d 'client_secret: YOUR_CLIENT_SECRET' \
+  -d 'client_id: {YOUR_CLIENT_ID}' \
+  -d 'client_secret: {YOUR_CLIENT_SECRET}' \
   -d 'grant_type: client_credentials' \
   -d 'scope: public-api'
 ```
@@ -25,8 +25,8 @@ var client = new RestClient("https://idp.mclabs.com");
 var request = new RestRequest("connect/token", Method.POST);
 request.AddHeader("content-type", "content-type: x-www-form-urlencoded");
 request.AddHeader("cache-control", "no-cache");
-request.AddParameter("client_id", "YOUR_CLIENT_ID", ParameterType.RequestBody);
-request.AddParameter("client_secret", "YOUR_CLIENT_SECRET", ParameterType.RequestBody);
+request.AddParameter("client_id", "{YOUR_CLIENT_ID}", ParameterType.RequestBody);
+request.AddParameter("client_secret", "{YOUR_CLIENT_SECRET}", ParameterType.RequestBody);
 request.AddParameter("grant_type", "client_credentials", ParameterType.RequestBody);
 request.AddParameter("scope", "public-api", ParameterType.RequestBody);
 var response = client.Execute(request);
@@ -40,7 +40,7 @@ var response = client.Execute(request);
 
 ```json
 {
-    "access_token": "YOUR_TOKEN",
+    "access_token": "{YOUR_TOKEN}",
     "expires_in": 3600,
     "token_type": "Bearer"
 }
@@ -48,8 +48,8 @@ var response = client.Execute(request);
 
 Acquiring an access token is a two-step process:
 
-1. Signup for a MicroTek developers account by contacting your account manager.
-2. Call our secure token service for an access token.
+1. Signup for a MicroTek developers account by contacting your account manager
+2. Call our secure token service for an access token
 
 <api>`POST https://idp.mclabs.com/connect/token`</api>
 
@@ -58,7 +58,7 @@ Acquiring an access token is a two-step process:
 Parameter | Type | Description
 --------- | ---- | -----------
 client_id **required** | *string* | Your client id
-client_secret **required** | *string* | Your client secret.
+client_secret **required** | *string* | Your client secret
 grant_type **required** | *string* | Should be "client_credentials"
 scope **required** | *string* | Should be "public-api"
 
@@ -66,7 +66,7 @@ scope **required** | *string* | Should be "public-api"
 
 All requests must be authenticated with an access token supplied in the Authorization header using the Bearer scheme. Your client may only have one active access token at a time. Acquiring a new access token will invalidate any other token you own.
 
-The request header will look like this: **Authorization: Bearer {your_access_token}**
+The request header will look like this: **Authorization: Bearer {YOUR_TOKEN}**
 
 ### Refreshing Access
 

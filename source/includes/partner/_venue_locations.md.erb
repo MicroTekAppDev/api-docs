@@ -1,7 +1,7 @@
 ## Room Rentals
 
-This integration allows users to search MicroTek's nearby venues and return results.
-    
+This integration allows partners to search MicroTek's venues.
+
 ### Find a nearby venue
 
 > Request:
@@ -9,7 +9,7 @@ This integration allows users to search MicroTek's nearby venues and return resu
 ```shell
 curl -X GET \
   <%= config[:api_host] %>/v1/partner/venue-locations?query=:query' \
-  -H 'authorization: Bearer your-account-token' \
+  -H 'authorization: Bearer {YOUR_TOKEN}' \
   -H 'content-type: application/json' \
   -H 'cache-control: no-cache'
 ```
@@ -17,7 +17,7 @@ curl -X GET \
 ```csharp
 var client = new RestClient("<%= config[:api_host] %>/v1");
 var request = new RestRequest("partner/venue-locations?query=:query", Method.GET);
-request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("authorization", "Bearer {YOUR_TOKEN}");
 request.AddHeader("content-type", "application/json");
 request.AddHeader("cache-control", "no-cache");
 var response = client.Execute(request);
@@ -58,9 +58,9 @@ var response = client.Execute(request);
 
 <api>`GET /v1/partner/venue-locations?query=:query`</api>
 
-Performs a facility search around a geographic area.
+Performs a venues search around a geographic area.
 
 Parameter | Type | Description
 --------- | ---- | -----------
 query **required** | *string* | A geopgrahic area such as a city, state or country
-radius *optional* | *int* | Search radius in miles. Defaults to 30 miles
+radius *optional* | *int* | Search radius in miles (defaults to 30 miles)

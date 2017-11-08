@@ -5,7 +5,7 @@
 ```shell
 curl -X POST \
   <%= config[:api_host] %>/v1/partner/referrals/company-newsletters \
-  -H 'authorization: Bearer your-account-token' \
+  -H 'authorization: Bearer {YOUR_TOKEN}' \
   -H 'content-type: application/json' \
   -H 'cache-control: no-cache' \
   -d '
@@ -18,7 +18,7 @@ curl -X POST \
 ```csharp
 var client = new RestClient("<%= config[:api_host] %>/v1");
 var request = new RestRequest("partner/referrals/company-newsletters", Method.POST);
-request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("authorization", "Bearer {YOUR_TOKEN}");
 request.AddHeader("content-type", "application/json");
 request.AddHeader("cache-control", "no-cache");
 request.AddJsonBody(new
@@ -37,9 +37,9 @@ var response = client.Execute(request);
 
 <api>`POST /v1/partner/referrals/company-newsletters`</api>
 
-Signs a contact up for MicroTek's news company letter.
+Signs a contact up for MicroTek's company news letter.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-name **required** | *string* | Person's full name
-email **required** | *string* | Person's email address
+name **required** | *string* | Subscriber's full name
+email **required** | *string* | Subscriber's email address

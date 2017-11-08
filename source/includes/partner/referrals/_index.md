@@ -1,3 +1,3 @@
 ## Referrals
 
-Leads and referral may be integrated using this functionality.
+Leads and referrals may be integrated using this functionality.

@@ -5,7 +5,7 @@
 ```shell
 curl -X POST \
   <%= config[:api_host] %>/v1/customer/order-requests/virtual-labs \
-  -H 'authorization: Bearer your-account-token' \
+  -H 'authorization: Bearer {YOUR_TOKEN}' \
   -H 'content-type: application/json' \
   -H 'cache-control: no-cache' \
   -d '
@@ -45,7 +45,7 @@ curl -X POST \
 ```csharp
 var client = new RestClient("<%= config[:api_host] %>/v1");
 var request = new RestRequest("customer/order-requests/virtual-labs", Method.POST);
-request.AddHeader("authorization", "Bearer {token}");
+request.AddHeader("authorization", "Bearer {YOUR_TOKEN}");
 request.AddHeader("content-type", "application/json");
 request.AddHeader("cache-control", "no-cache");
 request.AddJsonBody(new
@@ -97,15 +97,15 @@ var response = client.Execute(request);
 
 <api>`POST /v1/customer/order-requests/virtual-labs`</api>
 
-Creates a new virtual lab order request. The response body will include the order request's `request_key`,
+Creates a new virtual lab order request. The response body will include the order request's **request_key**,
 which can be used to query a request for status updates.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-course_key **required** | *guid* | The course unique identifier
+course_key **required** | *guid* | Course unique identifier
 purchase_order_number *optional* | *string* | Purchase order number
 reference_code *optional* | *string* | Provides a way to map our data to yours
-event_time_zone_key **required** | *guid* | Timezone of event. For this parameter value, please refer to the key value in ([timezone list](#appendix-lists-time-zones))
+event_time_zone_key **required** | *guid* | Time zone of event. For this parameter value, please refer to the key value in ([time zone list](#appendix-lists-time-zones))
 event_start_date **required** | *date*<span>yyyy-mm-dd</span> | Event start date in ISO date format
 event_end_date **required** | *date*<span>yyyy-mm-dd</span> | Event end date in ISO date format
 event_start_time **required** | *time*<span>hh:mm:ss</span> | Event start time in ISO time format
@@ -113,17 +113,17 @@ event_end_time **required** | *time*<span>hh:mm:ss</span> | Event end time in IS
 student_quantity **required** | *int* | The number of students attending the event
 instructor_quantity **required** | *int* | The number of computers required
 observer_quantity *optional* | *int* | The number of observers attending the event
-instructor **required** | *object* | Instructor information ([see instructor](#customer-api-order-requests-create-a-virtual-lab-order-request-instructor-object))
-preferred_data_center **required** | *object* | Preferred data center ([see preferred data center](#customer-api-order-requests-create-a-virtual-lab-order-request-preferred-data-center-object))
+instructor **required** | *object* | Instructor information ([see instructor](#client-api-order-requests-create-a-virtual-lab-order-request-instructor-object))
+preferred_data_center **required** | *object* | Preferred data center ([see preferred data center](#client-api-order-requests-create-a-virtual-lab-order-request-preferred-data-center-object))
 virtual_machine_rentention_in_days *optional* | *int* | Post event access (30 day increments)
-comments *optional* | *string* | Additional comments that MircroTek should be aware of
+comments *optional* | *string* | Additional comments that MicroTek should be aware of
 
 #### Instructor Object
 Parameter | Type | Description
 --------- | ---- | -----------
-first_name **required** | *string* | First Name
-last_name **required** | *string* | Last Name
-email **required** | *string* | Email Address
+first_name **required** | *string* | First name
+last_name **required** | *string* | Last name
+email **required** | *string* | Email address
 
 #### Preferred Data Center Object
 
@@ -135,12 +135,12 @@ email **required** | *string* | Email Address
 
 Parameter | Type | Description
 --------- | ---- | -----------
-time_zone_key *see note* | *guid* | Timezone of data center location. For this parameter value, please refer to the id value in ([timezone list](#appendix-lists-time-zones)).
-location *see note* | *object* | Preferred data center location ([see preferred data center location](#customer-api-order-requests-create-a-virtual-lab-order-request-preferred-data-center-location-object))
+time_zone_key *see note* | *guid* | Time zone of data center location. For this parameter value, please refer to the key value in ([time zone list](#appendix-lists-time-zones)).
+location *see note* | *object* | Preferred data center location ([see preferred data center location](#client-api-order-requests-create-a-virtual-lab-order-request-preferred-data-center-location-object))
 
 #### Preferred Data Center Location Object
 Parameter | Type | Description
 --------- | ---- | -----------
 city **required** | *string* | City
-region *optional* | *string* | State, Province or Region
+region *optional* | *string* | State, province or region
 country **required** | *string* | Country

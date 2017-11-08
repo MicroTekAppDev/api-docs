@@ -10,5 +10,5 @@ Note that page numbering is 1-based and that omitting the **page** parameter wil
 
 Parameter | Type  | Description
 --------- | ----  | -----------
-page *optional* | *int* | Page number to return. Defaults to 1.
-page_size *optional* | *int* | Number of records to return per page. Defaults to 30. Maximum of 250.
+page *optional* | *int* | Page number to return (defaults to 1)
+page_size *optional* | *int* | Number of records to return per page (defaults to 30, maximum of 250)
