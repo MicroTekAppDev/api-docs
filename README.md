@@ -1,6 +1,6 @@
 # MicroTek API Version 1
 
-This repo is the source code for our documentation. You can view the documentation [here](https://microtekappdev.github.io/api-docs).
+This repo is the source code for our API documentation. You can view the documentation [here](http://developer.mclabs.com/api-docs).
 
 Feel free to submit [issues](https://github.com/MicroTekAppDev/api-docs/issues) or fork this repo and contribute changes.
 
