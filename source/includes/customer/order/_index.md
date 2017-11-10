@@ -2,6 +2,11 @@
 
 MicroTek orders contain specifics including virtual lab services and room services.
 
+The following endpoints are currently available.
+
+- [List orders](#client-api-orders-list-orders)
+- [Get a single order](#client-api-orders-get-a-single-order)
+
 <aside class="notice">
   Heads Up!
   To create a new order, you'll want to use our create order request API endpoints.
