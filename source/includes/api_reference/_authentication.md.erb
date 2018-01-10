@@ -59,12 +59,12 @@ Parameter | Type | Description
 --------- | ---- | -----------
 client_id **required** | *string* | Your client id
 client_secret **required** | *string* | Your client secret
-grant_type **required** | *string* | Should be "client_credentials"
-scope **required** | *string* | Should be "public-api"
+grant_type **required** | *string* | Use "client_credentials"
+scope **required** | *string* | Use "public-api"
 
 ### Authenticating Requests
 
-All requests must be authenticated with an access token supplied in the Authorization header using the Bearer scheme. Your client may only have one active access token at a time. Acquiring a new access token will invalidate any other token you own.
+All requests must be authenticated with an access token supplied in the Authorization header using the Bearer scheme. Your client application may only have one active access token at a time. Acquiring a new access token will invalidate any other token owned.
 
 The request header will look like this: **Authorization: Bearer {YOUR_TOKEN}**
 

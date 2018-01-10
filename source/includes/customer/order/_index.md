@@ -8,8 +8,7 @@ The following endpoints are currently available.
 - [Get a single order](#client-api-orders-get-a-single-order)
 
 <aside class="notice">
-  Heads Up!
-  To create a new order, you'll want to use our create order request API endpoints.
+  Attention!  Please note, to create a new order, you'll want to use our create order request API endpoints.
   <ul>
     <li><a href="#client-api-order-requests-create-a-room-rental-order-request">Create a room rental order request</a></li>
     <li><a href="#client-api-order-requests-create-a-virtual-lab-order-request">Create a virtual lab order request</a></li>
