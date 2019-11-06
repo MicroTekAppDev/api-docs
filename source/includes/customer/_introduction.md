@@ -1,3 +1,3 @@
 ## Introduction
 
-MicroTek's client API provides access to common operations completed by an authorized client account.
+Attune's client API provides access to common operations completed by an authorized client account.

@@ -1,6 +1,6 @@
 ## Authentication
 
-All MicroTek API requests require authentication.
+All Attune API requests require authentication.
 
 1. [Acquire an access token](#api-reference-authentication-acquire-an-access-token)
 2. [Use the access token to make authenticated requests](#api-reference-authentication-authenticating-requests)
@@ -11,7 +11,7 @@ All MicroTek API requests require authentication.
 
 ```shell
 curl -X POST \
-  https://idp.mclabs.com/connect/token \
+  https://idp.attune.com/connect/token \
   -H 'content-type: x-www-form-urlencoded' \
   -H 'cache-control: no-cache' \
   -d 'client_id: {YOUR_CLIENT_ID}' \
@@ -21,7 +21,7 @@ curl -X POST \
 ```
 
 ```csharp
-var client = new RestClient("https://idp.mclabs.com");
+var client = new RestClient("https://idp.attune.com");
 var request = new RestRequest("connect/token", Method.POST);
 request.AddHeader("content-type", "content-type: x-www-form-urlencoded");
 request.AddHeader("cache-control", "no-cache");
@@ -48,10 +48,10 @@ var response = client.Execute(request);
 
 Acquiring an access token is a two-step process:
 
-1. Signup for a MicroTek developers account by contacting your account manager
+1. Signup for a Attune developers account by contacting your account manager
 2. Call our secure token service for an access token
 
-<api>`POST https://idp.mclabs.com/connect/token`</api>
+<api>`POST https://idp.attune.com/connect/token`</api>
 
 ##### Request arguments
 
